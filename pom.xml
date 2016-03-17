@@ -28,4 +28,18 @@
         </developer>
     </developers>
 
+    <!-- Repository definitions -->
+    <repositories>
+        <repository>
+            <id>alpha-team-releases</id>
+            <name>Alpha Team Releases</name>
+            <url>https://nexus.codinginfinity.com/repository/releases/</url>
+        </repository>
+        <repository>
+            <id>alpha-team-snapshots</id>
+            <name>Alpha Team Snapshots</name>
+            <url>https://nexus.codinginfinity.com/repository/snapshots/</url>
+        </repository>
+    </repositories>
+
 </project>
