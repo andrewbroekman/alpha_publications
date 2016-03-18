@@ -37,6 +37,19 @@
             <timezone>Africa/Johannesburg</timezone>
         </developer>
     </developers>
+    
+    <developers>
+        <developer>
+            <id>13325095</id>
+            <name>Elton Letlhogonolo Tom</name>
+            <email>u13325095@tuks.co.za</email>
+            <roles>
+                <role>Alpha Publications Team Member</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>Africa/Johannesburg</timezone>
+        </developer>
+    </developers>
 
     <!-- Repository definitions -->
     <repositories>
