@@ -36,10 +36,8 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
-    </developers>
-    
-    <developers>
-        <developer>
+	
+	    <developer>
             <id>13325095</id>
             <name>Elton Letlhogonolo Tom</name>
             <email>u13325095@tuks.co.za</email>
