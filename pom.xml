@@ -26,6 +26,16 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
+        <developer>
+            <id>13229908</id>
+            <name>Nhlahla Gershom Maluleke</name>
+            <email>u13229908@tuks.co.za</email>
+            <roles>
+                <role>Alpha Publications developer</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>Africa/Johannesburg</timezone>
+        </developer>
     </developers>
 
     <!-- Repository definitions -->
