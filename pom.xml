@@ -5,12 +5,11 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>com.codinginfinity.research</groupId>
-        <version>1.0</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <!-- Basic project settings -->
     <artifactId>publications</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <!-- Metadata regarding the project -->
     <name>UP CS Research Management System - Publications Module</name>
@@ -36,8 +35,7 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
-	
-	    <developer>
+        <developer>
             <id>13325095</id>
             <name>Elton Letlhogonolo Tom</name>
             <email>u13325095@tuks.co.za</email>
