@@ -55,6 +55,16 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
+        <developer>
+            <id>14310156</id>
+            <name>Elizabeth Fae Bode</name>
+            <email>u14310156@tuks.co.za</email>
+            <roles>
+                <role>Alpha Publications Team Member</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>Africa/Johannesburg</timezone>
+        </developer>
         
         
     </developers>
