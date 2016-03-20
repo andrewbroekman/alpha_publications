@@ -45,6 +45,18 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
+        <developer>
+            <id>12270467</id>
+            <name>Sibusiso Masemola</name>
+            <email>u12270467@tuks.co.za</email>
+            <roles>
+                <role>Alpha Publications Team Member</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>Africa/Johannesburg</timezone>
+        </developer>
+        
+        
     </developers>
 
     <!-- Repository definitions -->
