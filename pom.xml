@@ -65,7 +65,15 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
-        
+        <developer>
+        	<id>12059138</id>
+        	<name>Christiaan Saaiman</name>
+        	<roles>
+        		<role>Alpha Publication Team Member</role>
+        		<role>Developer</role>
+        	</roles>
+        	<timezone>Africa/Johannesburg</timezone>
+        </developer>
         
     </developers>
 
