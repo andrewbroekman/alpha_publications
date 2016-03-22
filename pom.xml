@@ -48,7 +48,7 @@
         <developer>
             <id>12270467</id>
             <name>Sibusiso Lincoln Masemola</name>
-            <email>u12270467@tuks.co.za </email>
+            <email>u12270467@tuks.co.za</email>
             <roles>
                 <role>Alpha Publications Team Member</role>
                 <role>Developer</role>
@@ -66,15 +66,15 @@
             <timezone>Africa/Johannesburg</timezone>
         </developer>
         <developer>
-        	<id>12059138</id>
-        	<name>Christiaan Saaiman</name>
-        	<roles>
-        		<role>Alpha Publication Team Member</role>
-        		<role>Developer</role>
-        	</roles>
-        	<timezone>Africa/Johannesburg</timezone>
+            <id>12059138</id>
+            <name>Christiaan Saaiman</name>
+            <roles>
+                <role>Alpha Publication Team Member</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>Africa/Johannesburg</timezone>
         </developer>
-        
+
     </developers>
 
     <!-- Repository definitions -->
