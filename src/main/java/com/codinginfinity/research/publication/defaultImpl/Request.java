@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author vongani
+ * @author gershom
  */
 public interface Request extends Serializable{
     
