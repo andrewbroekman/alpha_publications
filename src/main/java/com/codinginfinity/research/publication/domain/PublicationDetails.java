@@ -1,21 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.codinginfinity.research.publication.domain;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
 /**
  *
  * @author gershom
  */
-public class PublicationDetails{
+ @Entity
+ public class PublicationDetails{
+   
+	 
+    @Id
+    @GeneratedValue( strategy=GenerationType.AUTO )
+    private Integer id;	 
+	 
     private String title;
     private Date envisagedPublicationDate;
+	 
+     @OneToMany( targetEntity=Person.class)		 
     private Set<Person> authors = new HashSet<>();
 
     /**
