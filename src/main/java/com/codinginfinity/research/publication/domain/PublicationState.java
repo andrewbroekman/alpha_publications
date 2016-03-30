@@ -1,25 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.codinginfinity.research.publication.domain;
 
 import java.util.Date;
+import javax.persistence.*;
 
 /**
  *
  * @author gershom
  */
+ 
+ @Entity
 public class PublicationState{
+	
+   @Id 
+   @GeneratedValue( strategy=GenerationType.AUTO )
+
+    private int id;
+
     private Date date;
     private String reason;
+    
+    @OneToOne
     private PublicationDetails publicationDetails;
+    @OneToOne
     private LifeCycleState lifeCycleState;
+    @OneToOne
     private PublicationType publicationType;
-
-    public PublicationState(PublicationType publicationType) {
+     @OneToOne
+    private PublicationTarget publicationTarget;
+	
+      /**
+     * constructor
+     */
+	
+	
+    public PublicationState(){
+    }
+    
+    public PublicationState(PublicationType publicationType,PublicationTarget mPublicationTarget) {
         this.publicationType = publicationType;
+	this.publicationTarget=mPublicationTarget;
     }
 
     /**

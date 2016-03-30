@@ -1,21 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.codinginfinity.research.publication.domain;
+
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
 /**
  *
  * @author gershom
  */
+ 
+  @Entity
 public class PublicationType{
-
+    @Id
+    @GeneratedValue( strategy=GenerationType.AUTO )
+     private Integer id;	
+	
     private String name;
-    private Set<PublicationTypeState> publicationTypeStates = new HashSet<>();
+	
+    @OneToMany( targetEntity=PublicationTypeState.class)	
+    private Set<PublicationTypeState> publicationTypeState=new HashSet<>();
 
     /**
      * @return the name
@@ -31,17 +36,21 @@ public class PublicationType{
         this.name = name;
     }
 
-    /**
-     * @return the publicationTypeStates
+     public void addStateEntry(PublicationTypeState stateEntry) {
+        publicationTypeState.add(stateEntry);
+    }
+
+     /**
+     * @return the publicationTypeState
      */
-    public Set<PublicationTypeState> getPublicationTypeStates() {
-        return publicationTypeStates;
+    public Set<PublicationTypeState> getPublicationTypeState() {
+        return publicationTypeState;
     }
 
     /**
-     * @param publicationTypeStates the publicationTypeStates to set
+     * @param publicationTypeState the publicationTypeState to set
      */
-    public void setPublicationTypeStates(Set<PublicationTypeState> publicationTypeStates) {
-        this.publicationTypeStates = publicationTypeStates;
+    public void setPublicationTypeState(Set<PublicationTypeState> publicationTypeState) {
+        this.publicationTypeState = publicationTypeState;
     }
 }

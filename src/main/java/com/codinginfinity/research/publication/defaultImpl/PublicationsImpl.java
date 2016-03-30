@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.codinginfinity.research.publication.defaultImpl;
 
 import com.codinginfinity.research.publication.Publications;
@@ -17,8 +13,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class PublicationsImpl implements Publications {
     @Override
-    public GePublicationForPersonResponse getPublicationsForPerson(GetPublicationForPersonRequest publicationForPersonRequest) {
-        GePublicationForPersonResponse publicationForPersonResponse = new GePublicationForGroupResponse();
+    public GetPublicationForPersonResponse getPublicationsForPerson(GetPublicationForPersonRequest publicationForPersonRequest){
+        GetPublicationForPersonResponse publicationForPersonResponse = new GetPublicationForGroupResponse();
         // findPublicationsForPerson(publicationForPersonRequest.getPeriod().getStart(),publicationForPersonRequest.getPeriod().getEnd(),publicationForPersonRequest.getPublicationConfidenceLevel().ACCEPTED,publicationForPersonRequest.getPerson()n);
         //TODO: This is where we make a call to the database through the persistence layer(JPA)
         publicationForPersonResponse.addPublication(null);
@@ -26,8 +22,8 @@ public class PublicationsImpl implements Publications {
     }
 
     @Override
-    public GePublicationForGroupResponse getPublicationsForGroup(GetPublicationForGroupRequest publicationForGroupRequest) {
-        GePublicationForGroupResponse publicationForGroupResponse = new GePublicationForGroupResponse();
+    public GetPublicationForGroupResponse getPublicationsForGroup(GetPublicationForGroupRequest publicationForGroupRequest){
+        GetPublicationForGroupResponse publicationForGroupResponse = new GetPublicationForGroupResponse();
 
         //TODO: This is where we make a call to the database through the persistence layer(JPA)
         return publicationForGroupResponse;

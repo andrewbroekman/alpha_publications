@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.codinginfinity.research.publication;
 
 import com.codinginfinity.research.publication.defaultImpl.Period;
-import com.codinginfinity.research.publication.defaultImpl.Response;
-import com.codinginfinity.research.publication.defaultImpl.Request;
 import com.codinginfinity.research.publication.defaultImpl.PublicationConfidenceLevel;
 import com.codinginfinity.research.publication.domain.Person;
 import com.codinginfinity.research.publication.domain.Publication;
@@ -20,11 +14,11 @@ import java.util.List;
  */
 public interface Publications {
 
-    public GePublicationForPersonResponse getPublicationsForPerson(GetPublicationForPersonRequest publicationForPersonRequest);
+    public GetPublicationForPersonResponse getPublicationsForPerson(GetPublicationForPersonRequest publicationForPersonRequest);
 
-    public GePublicationForGroupResponse getPublicationsForGroup(GetPublicationForGroupRequest publicationForGroupRequest);
+    public GetPublicationForGroupResponse getPublicationsForGroup(GetPublicationForGroupRequest publicationForGroupRequest);
 
-    class GetPublicationForPersonRequest extends GetPublicationForGroupRequest implements Request {
+    class GetPublicationForPersonRequest extends GetPublicationForGroupRequest{
         private Person person;
 
         public GetPublicationForPersonRequest(Person person) {
@@ -46,7 +40,7 @@ public interface Publications {
 
     }
 
-    class GePublicationForPersonResponse implements Response {
+    class GetPublicationForPersonResponse{
         private List<Publication> publications = new ArrayList<>();
 
         /**
@@ -68,8 +62,7 @@ public interface Publications {
 
     }
 
-    class GetPublicationForGroupRequest implements Request {
-
+    class GetPublicationForGroupRequest{
         private PublicationConfidenceLevel publicationConfidenceLevel;
         private Period period;
 
@@ -106,6 +99,6 @@ public interface Publications {
             this.period = period;
         }
     }
-    class GePublicationForGroupResponse extends GePublicationForPersonResponse {
+    class GetPublicationForGroupResponse extends GetPublicationForPersonResponse {
     }
 }

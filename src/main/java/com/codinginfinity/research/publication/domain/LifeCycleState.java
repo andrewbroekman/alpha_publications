@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.codinginfinity.research.publication.domain;
+
+import javax.persistence.*;
 
 /**
  *
  * @author gershom
  */
+ 
+ @Entity
 public abstract class LifeCycleState {
+   @Id 
+   @GeneratedValue( strategy=GenerationType.AUTO )
+
+   private int id;
+	
     public abstract String getState();
 }
