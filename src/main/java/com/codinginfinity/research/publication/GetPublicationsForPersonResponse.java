@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author gershom
  */
-public class GetPublicationForPersonResponse {
+public class GetPublicationsForPersonResponse {
     
       private List<Publication> publications = new ArrayList<>();
       

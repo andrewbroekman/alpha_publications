@@ -20,6 +20,8 @@ public interface Publications {
     ChangePublicationStateResponse changePublicationState(ChangePublicationStateRequest changePublicationStateRequest);
 
     GetPublicationsForGroupResponse getPublicationsForGroup(GetPublicationsForGroupRequest getPublicationsForGroupRequest)throws NoSuchPublicationException;
+    
+    GetPublicationsForPersonResponse getPublicationsForPerson(GetPublicationsForPersonRequest publicationForPersonRequest);
 
 
     //GetPublicationResponse getPublication(GetPublicationRequest getPubReq);
