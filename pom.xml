@@ -13,7 +13,6 @@
     <packaging>jar</packaging>
     <!-- Metadata regarding the project -->
     <name>UP CS Research Management System - Publications Module</name>
-
     <developers>
         <developer>
             <id>14446619</id>
@@ -74,9 +73,7 @@
             </roles>
             <timezone>Africa/Johannesburg</timezone>
         </developer>
-
     </developers>
-
     <!-- Repository definitions -->
     <repositories>
         <repository>
