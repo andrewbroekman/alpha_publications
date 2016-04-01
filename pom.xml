@@ -74,7 +74,7 @@
             <timezone>Africa/Johannesburg</timezone>
         </developer>
     </developers>
-  <!-- Repository definitions -->
+    <!-- Repository definitions -->
     <repositories>
         <repository>
             <id>alpha-team-releases</id>
