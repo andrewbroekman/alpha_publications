@@ -31,4 +31,9 @@ public class GetPublicationsForGroup implements Publications{
         return null;
     }
 
+    @Override
+    public GetPublicationsForPersonResponse getPublicationsForPerson(GetPublicationsForPersonRequest publicationForPersonRequest) {
+        return null;  //Dont implement this chief
+    }
+
 }

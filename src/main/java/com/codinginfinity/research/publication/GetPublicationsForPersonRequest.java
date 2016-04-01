@@ -5,16 +5,16 @@ package com.codinginfinity.research.publication;
  *
  * @author gershom
  */
-public class GetPublicationForPersonRequest {
+public class GetPublicationsForPersonRequest {
     
     private Period publicationPeriod;
     private Person person;
     private PublicationConfidenceLevel publicationConfidenceLevel;
     
-    public GetPublicationForPersonRequest(){
+    public GetPublicationsForPersonRequest(){
             
     }
-    public GetPublicationForPersonRequest(Person person) {
+    public GetPublicationsForPersonRequest(Person person) {
             this.person = person;
     }
     /**
