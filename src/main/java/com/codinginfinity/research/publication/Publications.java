@@ -5,6 +5,7 @@ package com.codinginfinity.research.publication;
  *
  * @author Christiaan Saaiman
  * @author Gian Paolo Buffo
+ * @author Sibusiso Masemola
  * @version 1.1
  * @since 2016-03-22
  */
@@ -20,4 +21,9 @@ public interface Publications {
 
     GetPublicationsForGroupResponse getPublicationsForGroup(GetPublicationsForGroupRequest getPublicationsForGroupRequest)throws NoSuchPublicationException;
 
-}
+
+    //GetPublicationResponse getPublication(GetPublicationRequest getPubReq);
+
+    //CreatePublicationResponse createPublication(CreatePublicationRequest createPubReq);
+
+  }
