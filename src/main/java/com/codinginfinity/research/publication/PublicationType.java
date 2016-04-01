@@ -12,6 +12,6 @@ import java.util.Set;
 public class PublicationType
 {
 	private String name;
-        private Set<PublicationTypeState> publicationTypeState=new HashSet<>();
+        private Set<PublicationTypeState> publicationTypeStates=new HashSet<>();
 	
 }
