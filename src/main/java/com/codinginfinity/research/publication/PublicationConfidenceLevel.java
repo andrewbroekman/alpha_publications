@@ -1,5 +1,5 @@
 
-package com.codinginfinity.research.publication.defaultImpl;
+package com.codinginfinity.research.publication;
 
 /**
  *
