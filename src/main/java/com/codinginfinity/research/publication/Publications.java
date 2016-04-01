@@ -1,46 +1,23 @@
 package com.codinginfinity.research.publication;
 
 /**
+ * The interface of the Publications module for the UP CS Research Management System
+ *
  * @author Christiaan Saaiman
- * @version 1.0
+ * @author Gian Paolo Buffo
+ * @version 1.1
  * @since 2016-03-22
  */
+
 public interface Publications {
-    AddPublicationResponse addPublication(AddPublicationRequest addPubReq);
-    GetPublicationResponse getPublication(GetPublicationRequest getPubReq);
-    CreatePublicationResponse createPublication(CreatePublicationRequest createPubReq);
+    //AddPublicationResponse addPublication(AddPublicationRequest addPubReq);
 
-    public class AddPublicationResponse{}
-    public class AddPublicationRequest{}
+    //GetPublicationResponse getPublication(GetPublicationRequest getPubReq);
 
-    public class GetPublicationResponse{}
-    public class GetPublicationRequest{}
+    //CreatePublicationResponse createPublication(CreatePublicationRequest createPubReq);
 
-    public class CreatePublicationResponse{}
-    public class CreatePublicationRequest{}
+    ChangePublicationStateResponse changePublicationState(ChangePublicationStateRequest changePublicationStateRequest);
 
-    public class Exception{}
-    public class PublicationWithTitleExistsForAuthors extends Exception{}
-    public class InvalidRequest extends Exception{}
-    public class NotAuthorized extends Exception{}
+    GetPublicationsForGroupResponse getPublicationsForGroup(GetPublicationsForGroupRequest getPublicationsForGroupRequest)throws NoSuchPublicationException;
 
-    public class PublicationState{
-        private Date date;
-        private Date envisagedPublicationDate;
-    }
-
-    public class PublicationType{}
-    public class PublicationTarget{}
-
-    public class LifeCycleState{}
-    public class InProgress extends LifeCycleState{}
-    public class Submitted extends LifeCycleState{}
-    public class InRevision extends LifeCycleState{}
-    public class Rejected extends LifeCycleState{}
-    public class Published extends LifeCycleState{
-        private Date publicationDate;
-    }
-    public class Abandoned extends LifeCycleState{}
-
-    public class Date{}
 }
