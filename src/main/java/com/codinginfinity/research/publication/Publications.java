@@ -7,6 +7,7 @@ import java.util.Vector;
  * @author Christiaan Saaiman
  * @author Gian Paolo Buffo
  * @author Sibusiso Masemola
+ * @author Elton Tom
  * @version 1.1
  * @since 2016-03-22
  */
@@ -23,6 +24,8 @@ public interface Publications {
     GetPublicationsForGroupResponse getPublicationsForGroup(GetPublicationsForGroupRequest getPublicationsForGroupRequest)throws NoSuchPublicationException;
     
     GetPublicationsForPersonResponse getPublicationsForPerson(GetPublicationsForPersonRequest publicationForPersonRequest);
+	
+    double calcAccreditationPointsForPerson(Person _person);
 
 
     //GetPublicationResponse getPublication(GetPublicationRequest getPubReq);
