@@ -8,6 +8,7 @@ import java.util.Vector;
  * @author Gian Paolo Buffo
  * @author Sibusiso Masemola
  * @author Elizabeth Bode
+ * @author Elton Tom
  * @version 1.2
  * @since 2016-03-22
  */
@@ -25,6 +26,8 @@ public interface Publications {
     
     GetPublicationsForPersonResponse getPublicationsForPerson(GetPublicationsForPersonRequest publicationForPersonRequest);
 
+    public double CalcAccreditationPointsForPerson(Person _person);
+    public double CalcAccreditationPointsForGroup(ResearchGroup _researchGroup);
 
     //GetPublicationResponse getPublication(GetPublicationRequest getPubReq);
 
