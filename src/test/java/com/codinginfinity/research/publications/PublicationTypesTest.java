@@ -53,14 +53,17 @@ public class PublicationTypesTest {
     @Test
     public void testModifyPublicationType() {
         System.out.println("modifyPublicationType");
-        Date effDate = new Date("", 0, 0);
-        Real accPoints = new Real(0);
+        Date effDate = new Date("June", 2010, 4);
+        Real accPoints = new Real(13);
+        String testReason = "testReason";
         PublicationType pt = new PublicationType("testName", "testDescr");
         ModifyPublicationTypeRequest modifyPublicationTypeRequest = new ModifyPublicationTypeRequest(pt);
-        TestPublicationTypes instance = new TestPublicationTypes(pt.name, pt.description, effDate, accPoints, "testReason");
-        ModifyPublicationTypeResponse expResult = new ModifyPublicationTypeResponse(modifyPublicationTypeRequest.getModifiedPublicationType());
+        TestPublicationTypes instance = new TestPublicationTypes(pt.name, pt.description, effDate, accPoints, testReason);
+        ModifyPublicationTypeResponse expResult = new ModifyPublicationTypeResponse(modifyPublicationTypeRequest.pubType);
         ModifyPublicationTypeResponse result = instance.modifyPublicationType(modifyPublicationTypeRequest);
-        assertEquals(expResult, result);
+        assertEquals(expResult.newPubType.name, result.newPubType.name);
+        assertEquals(expResult.newPubType.description, result.newPubType.description);
+        assertEquals(expResult.newPubType.state.effectiveDate.getDate(), result.newPubType.state.effectiveDate.getDate());
     }
 
     /**
@@ -69,14 +72,17 @@ public class PublicationTypesTest {
     @Test
     public void testAddPublicationType() {
         System.out.println("addPublicationType");
-        Date effDate = new Date("", 0, 0);
-        Real accPoints = new Real(0);
+        Date effDate = new Date("June", 2010, 4);
+        Real accPoints = new Real(13);
+        String testReason = "testReason";
         PublicationType pt = new PublicationType("testName", "testDescr");
         AddPublicationTypeRequest addPublicationTypeRequest = new AddPublicationTypeRequest(pt);
-        TestPublicationTypes instance = new TestPublicationTypes(pt.name, pt.description, effDate, accPoints, "testReason");
-        AddPublicationTypeResponse expResult = new AddPublicationTypeResponse(addPublicationTypeRequest.getNewPublicationType());
+        TestPublicationTypes instance = new TestPublicationTypes(pt.name, pt.description, effDate, accPoints, testReason);
+        AddPublicationTypeResponse expResult = new AddPublicationTypeResponse(addPublicationTypeRequest.pubType);
         AddPublicationTypeResponse result = instance.addPublicationType(addPublicationTypeRequest);
-        assertEquals(expResult, result);
+        assertEquals(expResult.newPubType.name, result.newPubType.name);
+        assertEquals(expResult.newPubType.description, result.newPubType.description);
+        assertEquals(expResult.newPubType.state.effectiveDate.getDate(), result.newPubType.state.effectiveDate.getDate());
     }
     
     public class TestPublicationTypes {

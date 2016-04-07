@@ -88,9 +88,11 @@ public class AddPublicationTypeRequestTest {
     public void testVerifyValidInput_String_String() {
         System.out.println("verifyValidInput");
         String name = "testName";
-        String description = "testDescription";        
-        boolean expResult = false;
-        boolean result = testRequest.get(0).verifyValidInput(name, description);
+        String description = "testDescription";
+        PublicationType testPubType = new PublicationType("testName", "testDescription");
+        TestAddPublicationTypeRequest testRequest = new TestAddPublicationTypeRequest(testPubType);
+        boolean expResult = true;
+        boolean result = testRequest.verifyValidInput(name, description);
         assertEquals(expResult, result);
     }
 
@@ -103,7 +105,14 @@ public class AddPublicationTypeRequestTest {
         Date effDate = new Date("June", 2016, 3);
         Real accPoints = new Real(10);
         String reason = "testReason";
-        testRequest.get(0).addStateEntry(effDate, accPoints, reason);
+        //Active testActive = new Active(effDate, accPoints);
+        //NotActive testNotActive = new NotActive(effDate, reason);
+        PublicationType testPubType = new PublicationType("testName", "testDescr");
+        TestAddPublicationTypeRequest instance = new TestAddPublicationTypeRequest(testPubType);
+        instance.addStateEntry(effDate, accPoints, reason);
+        assertEquals(effDate, instance.pubType.state.effectiveDate);
+        //assertEquals(testActive, instance.pubType.state);
+        //assertEquals(reason, instance.pubType.state.deactivationReason.getDeactivationReason());
     }
 
     /**
@@ -114,13 +123,13 @@ public class AddPublicationTypeRequestTest {
         try
         {
             System.out.println("createPublicationType");
-            String name = "";
-            String description = "";
-            TestAddPublicationTypeRequest instance = new TestAddPublicationTypeRequest(new PublicationType("testName", "testDescr"));
+            String name = "testName2";
+            String description = "testDescr2";
+            PublicationType testPubType = new PublicationType("testName", "testDescr");
+            TestAddPublicationTypeRequest instance = new TestAddPublicationTypeRequest(testPubType);
             instance.createPublicationType(name, description);
-            assertEquals(name, instance.getNewPublicationType().name);
-            assertEquals(description, instance.getNewPublicationType().description);
-            testRequest.add(instance);
+            assertEquals(name, instance.pubType.name);
+            assertEquals(description, instance.pubType.description);
         }
         catch (Throwable ex)
         {
@@ -134,12 +143,9 @@ public class AddPublicationTypeRequestTest {
     @Test
     public void testGetNewPublicationType() {
         System.out.println("getNewPublicationType");
-        PublicationType expResult;
-        for (int i = 0; i < testPubType.size(); i++)
-        {
-            expResult = testPubType.get(i);
-            assertEquals(expResult, testRequest.get(i).getNewPublicationType());
-        }
+        PublicationType expResult = new PublicationType("testName", "testDescr");
+        TestAddPublicationTypeRequest instance = new TestAddPublicationTypeRequest(expResult);
+        assertEquals(expResult, instance.getNewPublicationType());
     }
     
     public class TestAddPublicationTypeRequest {

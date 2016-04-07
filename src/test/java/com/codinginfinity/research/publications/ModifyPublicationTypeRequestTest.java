@@ -86,9 +86,11 @@ public class ModifyPublicationTypeRequestTest {
     public void testVerifyValidInput_String_String() {
         System.out.println("verifyValidInput");
         String name = "testName";
-        String description = "testDescription";        
-        boolean expResult = false;
-        boolean result = testRequest.get(0).verifyValidInput(name, description);
+        String description = "testDescription";
+        PublicationType testPubType = new PublicationType("testName", "testDescription");
+        TestModifyPublicationTypeRequest testRequest = new TestModifyPublicationTypeRequest(testPubType);
+        boolean expResult = true;
+        boolean result = testRequest.verifyValidInput(name, description);
         assertEquals(expResult, result);
     }
 
@@ -101,7 +103,12 @@ public class ModifyPublicationTypeRequestTest {
         Date effDate = new Date("July", 2016, 20);
         Real accPoints = new Real(20);
         String reason = "testReason";
-        testRequest.get(0).addStateEntry(effDate, accPoints, reason);
+        PublicationType testPubType = new PublicationType("testName", "testDescr");
+        TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(testPubType);
+        instance.addStateEntry(effDate, accPoints, reason);
+        assertEquals(effDate, instance.pubType.state.effectiveDate);
+        //assertEquals(accPoints, instance.pubType.state.accreditationPoints.getAccreditationPoints());
+        //assertEquals(reason, instance.pubType.state.deactivationReason.getDeactivationReason());
     }
 
     /**
@@ -112,13 +119,13 @@ public class ModifyPublicationTypeRequestTest {
         try
         {
             System.out.println("setModifiedPublicationType");
-            String name = "";
-            String description = "";
-            TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(new PublicationType("testName", "testDescr"));
+            String name = "testName2";
+            String description = "testDescr2";
+            PublicationType testPubType = new PublicationType("testName", "testDescr");
+            TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(testPubType);
             instance.setModifiedPublicationType(name, description);
-            assertEquals(name, instance.getModifiedPublicationType().name);
-            assertEquals(description, instance.getModifiedPublicationType().description);
-            testRequest.add(instance);
+            assertEquals(name, instance.pubType.name);
+            assertEquals(description, instance.pubType.description);
         }
         catch (Throwable ex)
         {
@@ -132,12 +139,9 @@ public class ModifyPublicationTypeRequestTest {
     @Test
     public void testGetModifiedPublicationType() {
         System.out.println("getModifiedPublicationType");
-        PublicationType expResult;
-        for (int i = 0; i < testPubType.size(); i++)
-        {
-            expResult = testPubType.get(i);
-            assertEquals(expResult, testRequest.get(i).getModifiedPublicationType());
-        }
+        PublicationType expResult = new PublicationType("testName", "testDescr");
+        TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(expResult);
+        assertEquals(expResult, instance.getModifiedPublicationType());
     }
     
     public class TestModifyPublicationTypeRequest {

@@ -40,10 +40,12 @@ public class ActiveTest {
     @Test
     public void testSetAccreditationPoints() {
         System.out.println("setAccreditationPoints");
+        Date testDate = new Date("October", 2016, 15);
+        Real testReal = new Real(0);
         int points = 15;
-        Active instance = new Active();
+        TestActive instance = new TestActive(testDate, testReal);
         instance.setAccreditationPoints(points);
-        assertEquals(points, instance.getAccreditationPoints());
+        assertEquals(points, instance.accreditationPoints.getPoints());
     }
 
     /**
@@ -52,10 +54,12 @@ public class ActiveTest {
     @Test
     public void testGetAccreditationPoints() {
         System.out.println("getAccreditationPoints");
-        Active instance = new Active();
-        int expResult = 15;
+        Date testDate = new Date("October", 2016, 15);
+        Real testReal = new Real(15);
+        TestActive instance = new TestActive(testDate, testReal);
+        int expPoints = 15;
         int result = instance.getAccreditationPoints();
-        assertEquals(expResult, result);
+        assertEquals(expPoints, result);
     }
     
     public class TestActive extends PublicationTypeState{

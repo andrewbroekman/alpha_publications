@@ -45,7 +45,7 @@ public class PublicationTypeTest {
     public void testGetPublicationTypesList() {
         System.out.println("getPublicationTypesList");
         TestPublicationType instance = new TestPublicationType();
-        Vector expResult = null;
+        Vector expResult = new Vector();
         Vector result = instance.getPublicationTypesList();
         assertEquals(expResult, result);
     }
