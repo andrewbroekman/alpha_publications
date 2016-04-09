@@ -1,5 +1,7 @@
 
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
+
+import com.codinginfinity.research.publications.Person;
 
 /**
  *

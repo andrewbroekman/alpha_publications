@@ -1,4 +1,4 @@
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
 
 
 /**
@@ -33,7 +33,17 @@ public class GetPublicationsForGroup implements Publications{
 
     @Override
     public GetPublicationsForPersonResponse getPublicationsForPerson(GetPublicationsForPersonRequest publicationForPersonRequest) {
-        return null;  //Dont implement this chief
+        return null;  
+    }
+
+    @Override
+    public ModifyPublicationTypeResponse modifyPublicationType(ModifyPublicationTypeRequest modifyPublicationTypeRequest) {
+        return null;
+    }
+
+    @Override
+    public AddPublicationTypeResponse addPublicationType(AddPublicationTypeRequest addPublicationTypeRequest) {
+        return null;
     }
 
 }

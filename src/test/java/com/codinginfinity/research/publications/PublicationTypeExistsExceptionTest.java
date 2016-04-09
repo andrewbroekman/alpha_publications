@@ -4,7 +4,7 @@
 * @since 2016-03-23
 */
 
-package com.codinginfinity.publications;
+package com.codinginfinity.research.publications;
 
 import org.junit.After;
 import org.junit.Before;

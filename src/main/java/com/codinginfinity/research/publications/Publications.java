@@ -1,4 +1,4 @@
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
 import java.util.Vector;
 
 /**
@@ -8,6 +8,7 @@ import java.util.Vector;
  * @author Gian Paolo Buffo
  * @author Sibusiso Masemola
  * @author Elizabeth Bode
+ * @author Nhlahla Gershom Maluleke
  * @version 1.2
  * @since 2016-03-22
  */

@@ -1,4 +1,4 @@
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
 
 /**
  * A class indicating that a publication is currently in revision (ie it has an InRevision LifeCycleState)

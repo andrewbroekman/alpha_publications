@@ -4,9 +4,9 @@
 * @since 2016-03-17
 */
 
-package com.codinginfinity.publications;
+package com.codinginfinity.research.publications;
 
-public class PublicationTypeState {
+public abstract class PublicationTypeState {
     Date effectiveDate;
     
     /**

@@ -1,4 +1,4 @@
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
 
 /**
  * A class representing a user of the system. Currently used as a mock.

@@ -1,5 +1,5 @@
 
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
 
 import java.util.ArrayList;
 import java.util.List;

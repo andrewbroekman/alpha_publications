@@ -1,4 +1,4 @@
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
 
 /**
  * An exception that is thrown whenever a user requests a publication that does not exist

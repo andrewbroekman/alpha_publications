@@ -1,4 +1,4 @@
- package com.codinginfinity.publications;
+ package com.codinginfinity.research.publications;
 
 /** Date Class (needs to be implemented??)
 * @author Elizabeth Bode
