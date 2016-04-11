@@ -95,7 +95,7 @@ public class AddPublicationTypeRequest {
             {
                 if (accPoints != null)
                 {
-                    pubType.state = new Active(effDate, accPoints);
+                    pubType.state = new Active(effDate, accPoints);                
                 }
                 else
                 {
