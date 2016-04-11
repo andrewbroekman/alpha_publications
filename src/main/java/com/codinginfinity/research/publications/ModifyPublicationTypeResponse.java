@@ -4,7 +4,7 @@
 * @since 2016-03-17
 */
 
-package com.codinginfinity.publications;
+package com.codinginfinity.research.publications;
 
 public class ModifyPublicationTypeResponse {
     PublicationType newPubType;
@@ -12,19 +12,34 @@ public class ModifyPublicationTypeResponse {
     /**
     * Class constructor
     */
+    public ModifyPublicationTypeResponse()
+    {
+        newPubType = null;
+    }
+        
     public ModifyPublicationTypeResponse(PublicationType pt)
     {
         newPubType = pt;
     }
     
     /**
-    * Returns the modifiedPublicationType using the getter
-    * @param PublicationType
-    *                     The function will return an instance of the PublicationType
-    * @return The instance of PublicationType
+    * Setter for the newPubType variable
+    * @param pt
+    *         The variable that will be used to change the value of the newPubType variable
     */
-    /*public PublicationType sendModifiedPublicationType()
+    public void setModifyPublicationTypeResponse(PublicationType pt)
     {
-        return modPubTypeReq.getModifiedPublicationType();
-    }*/
+        newPubType = pt;
+    }
+    
+    /**
+    * Getter for newPubType
+    * @param PublicationType
+    *           Returns the new publication type
+    * @return The new publication type
+    */
+    public PublicationType getModifyPublicationTypeResponse()
+    {
+        return newPubType;
+    }
 }

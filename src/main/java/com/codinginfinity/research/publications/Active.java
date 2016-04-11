@@ -4,7 +4,7 @@
 * @since 2016-03-17
 */
 
-package com.codinginfinity.publications;
+package com.codinginfinity.research.publications;
 
 public class Active extends PublicationTypeState{
     Real accreditationPoints;
@@ -29,7 +29,7 @@ public class Active extends PublicationTypeState{
     
     /**
     * Setter for the accreditationPoints variable
-    * @param point
+    * @param points
     *         The variable that will be used to change the value of the accreditationPoints variable
     */
     public void setAccreditationPoints(int points)

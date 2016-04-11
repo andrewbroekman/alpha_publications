@@ -4,7 +4,7 @@
  * @since 2016-03-17
  */
 
-package com.codinginfinity.publications;
+package com.codinginfinity.research.publications;
 import java.util.*;
 
 
@@ -95,7 +95,7 @@ public class AddPublicationTypeRequest {
             {
                 if (accPoints != null)
                 {
-                    pubType.state = new Active(effDate, accPoints);
+                    pubType.state = new Active(effDate, accPoints);                
                 }
                 else
                 {
