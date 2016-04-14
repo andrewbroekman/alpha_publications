@@ -1,6 +1,7 @@
 /** AddPublicationTypeRequest Class
  * @author Elizabeth Bode
- * @version 1.0
+ * @author Gian Paolo Buffo
+ * @version 1.1
  * @since 2016-03-17
  */
 
@@ -10,7 +11,7 @@ import java.util.*;
 
 public class AddPublicationTypeRequest {
     PublicationType pubType;
-    Vector pubTypeList;
+    private Vector pubTypeList;
 
     /**
      * Class constructor
@@ -54,10 +55,8 @@ public class AddPublicationTypeRequest {
     public boolean verifyValidInput(Date inDate, Real inPoints, String inReason)
     {
         String date = new Date().toString();
-        if ((inReason != ""))//NumberUtils.isNumber(inPoints.accreditPoints) needs to test accreditPoints are a number and (inDate.getDate() == date) the date isn't in the past
-            return true;
-        else
-            return false;
+        //NumberUtils.isNumber(inPoints.accreditPoints) needs to test accreditPoints are a number and (inDate.getDate() == date) the date isn't in the past
+        return (inReason != "");
     }
     
     /**
@@ -72,44 +71,42 @@ public class AddPublicationTypeRequest {
      */
     public boolean verifyValidInput(String name, String description)
     {
-        if (name != "" && description != null)
-            return true;
-        else
-            return false;
+        return name != "" && description != null;
     }
-    
-    /**
-     * Creates a new state entry for the new publication type
-     * @param effDate
-     *            The effective date to be used to create the state
-     * @param accPoints
-     *            The accreditation points to be used to create the state
-     * @param reason
-     *            The deactivation reason to be used to create the state
-     */
-    public void addStateEntry(Date effDate, Real accPoints, String reason)
-    {
-        try
-        {
-            if (verifyValidInput(effDate, accPoints, reason))
-            {
-                if (accPoints != null)
-                {
-                    pubType.state = new Active(effDate, accPoints);
-                }
-                else
-                {
-                    pubType.state = new NotActive(effDate, reason);
-                }
-            }
-            else
-                throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
-        }
-        catch (InvalidInputException err)
-        {
-            System.out.println(err.getReason());
-        }
-    }
+
+//    todo duplicate found in AddPublicationTypeRequest - where should it go?
+//    /**
+//     * Creates a new state entry for the new publication type
+//     * @param effDate
+//     *            The effective date to be used to create the state
+//     * @param accPoints
+//     *            The accreditation points to be used to create the state
+//     * @param reason
+//     *            The deactivation reason to be used to create the state
+//     */
+//    public void addStateEntry(Date effDate, Real accPoints, String reason)
+//    {
+//        try
+//        {
+//            if (verifyValidInput(effDate, accPoints, reason))
+//            {
+//                if (accPoints != null)
+//                {
+//                    pubType.state = new Active(effDate, accPoints);
+//                }
+//                else
+//                {
+//                    pubType.state = new NotActive(effDate, reason);
+//                }
+//            }
+//            else
+//                throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
+//        }
+//        catch (InvalidInputException err)
+//        {
+//            System.out.println(err.getReason());
+//        }
+//    }
 
     /**
      * Creates a new publication type

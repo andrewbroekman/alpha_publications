@@ -111,8 +111,7 @@ public class ModifyPublicationTypeRequest {
 
     /**
     * Setter for the pubType variable
-    * @param pt
-    *         The variable that will be used to change the value of the pubType           
+    * todo fix param list
     */
     public void setModifiedPublicationType(String name, String description)
     {
@@ -146,8 +145,6 @@ public class ModifyPublicationTypeRequest {
     
     /**
     * Getter for the pubType variable
-    * @param PublicationType
-    *                     The function will return the instance of the PublicationType
     * @return The instance of PublicationType
     */
     public PublicationType getModifiedPublicationType()

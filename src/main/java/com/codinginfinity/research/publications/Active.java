@@ -10,7 +10,7 @@ package com.codinginfinity.research.publications;
 import java.util.Date;
 
 public class Active extends PublicationTypeState{
-    Real accreditationPoints;
+    private Real accreditationPoints;
     
     /**
     * Class constructor
