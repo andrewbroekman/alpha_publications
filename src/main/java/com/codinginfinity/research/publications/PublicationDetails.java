@@ -1,44 +1,23 @@
 package com.codinginfinity.research.publications;
 
-import com.codinginfinity.research.publications.Person;
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
+import java.util.List;
+
 
 /**
  * A class representing the details of a publication, such as the authors, title and envisaged publication date
  *
  * @author Gian Paolo Buffo
- * @author Nhlahla Maluleke
+ * @author Gershom Maluleke
  */
 
 public class PublicationDetails {
-    private ArrayList<Person> authors;
+    private List<Person> authors=new ArrayList();
     private String title;
     private Date envisagedPublicationDate;
-
     
-    public PublicationDetails(ArrayList<Person> mAuthors)
-    {
-        this.authors=mAuthors;
-    }
-    /**
-     * @return the authors
-     */
-    public ArrayList<Person> getAuthors() {
-        return authors;
-    }
-
-    /**
-     * @param authors the authors to set
-     */
-    public void setAuthors(ArrayList<Person> authors) {
-        this.authors = authors;
-    }
-    public void addAuthor(Person person) {
-        authors.add(person);
-    }
-
-    /**
+     /**
      * @return the title
      */
     public String getTitle() {
@@ -64,5 +43,23 @@ public class PublicationDetails {
      */
     public void setEnvisagedPublicationDate(Date envisagedPublicationDate) {
         this.envisagedPublicationDate = envisagedPublicationDate;
+    }
+
+    /**
+     * @return the authors
+     */
+    public List<Person> getAuthors() {
+        return authors;
+    }
+
+    /**
+     * @param authors the authors to set
+     */
+    public void setAuthors(List<Person> authors) {
+        this.authors = authors;
+    }
+
+    public void addAuthor(Person person) {
+        authors.add(person);
     }
 }

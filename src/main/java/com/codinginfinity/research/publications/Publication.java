@@ -1,32 +1,34 @@
 package com.codinginfinity.research.publications;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A class representing a publication
  *
  * @author Gian Paolo Buffo
- * @author Nhlahla Maluleke
+ * @author Gershom Maluleke
  */
 
 public class Publication {
-     private ArrayList<PublicationState> stateEntries;
+     private List<PublicationState> publicationStates = new ArrayList<>();
 
     public void addStateEntry(PublicationState stateEntry) {
+         getPublicationStates().add(stateEntry);
 
+    }
+    
+    /**
+     * @return the publicationStates
+     */
+    public List<PublicationState> getPublicationStates() {
+        return publicationStates;
     }
 
     /**
-     * @return the stateEntries
+     * @param publicationStates the publicationStates to set
      */
-    public ArrayList<PublicationState> getStateEntries() {
-        return stateEntries;
-    }
-
-    /**
-     * @param stateEntries the stateEntries to set
-     */
-    public void setStateEntries(ArrayList<PublicationState> stateEntries) {
-        this.stateEntries = stateEntries;
+    public void setPublicationStates(List<PublicationState> publicationStates) {
+        this.publicationStates = publicationStates;
     }
 }

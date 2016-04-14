@@ -1,8 +1,6 @@
 
 package com.codinginfinity.research.publications;
 
-import com.codinginfinity.research.publications.Person;
-
 /**
  *
  * @author gershom

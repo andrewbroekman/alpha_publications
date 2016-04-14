@@ -1,17 +1,21 @@
 /** PublicationType Class
 * @author Elizabeth Bode
+* @author Gershom Malululeke
 * @version 1.0
 * @since 2016-03-17
 */
 
 package com.codinginfinity.research.publications;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Vector;
 
 public class PublicationType {
     String name;
     String description;
-    PublicationTypeState state;
+    PublicationTypeState state;     //I think this should be an ordered list,check domain model
+    private Set<PublicationTypeState> publicationTypeState=new HashSet<>();
     
     /**
     * Class constructor
@@ -38,6 +42,10 @@ public class PublicationType {
     {
         return new Vector();
     }
+
+    void setName(String mName) {
+        this.name=mName;
+    }
     /**
     * Setter for the type variable using the ModifyPublicationTypeResponse instance          
     */
@@ -45,4 +53,21 @@ public class PublicationType {
     {
         type = modPubTypeResp.sendModifiedPublicationType().type;
     }*/
+    public void addStateEntry(PublicationTypeState stateEntry) {
+        publicationTypeState.add(stateEntry);
+    }
+
+     /**
+     * @return the publicationTypeState
+     */
+    public Set<PublicationTypeState> getPublicationTypeState() {
+        return publicationTypeState;
+    }
+
+    /**
+     * @param publicationTypeState the publicationTypeState to set
+     */
+    public void setPublicationTypeState(Set<PublicationTypeState> publicationTypeState) {
+        this.publicationTypeState = publicationTypeState;
+    }
 }

@@ -6,7 +6,7 @@ import java.net.URL;
  * A class showing the intended target of the publication.
  *
  * @author Gian Paolo Buffo
- * @author Nhlahla Maluleke
+ * @author Gershom Maluleke
  */
 
 public class PublicationTarget {
