@@ -1,11 +1,13 @@
 /** AddPublicationTypeRequestTest Class
 * @author Elizabeth Bode
-* @version 1.0
+ * @authot Gian Paolo Buffo
+* @version 1.1
 * @since 2016-03-23
 */
 
 package com.codinginfinity.research.publications;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
@@ -69,7 +71,7 @@ public class AddPublicationTypeRequestTest {
     @Test
     public void testVerifyValidInput_3args() {
         System.out.println("verifyValidInput");
-        Date inDate = new Date("June", 2016, 3);
+        Date inDate = new Date();
         Real inPoints = new Real(10);
         String inReason = "testReason";
         boolean expResult = false;
@@ -102,7 +104,7 @@ public class AddPublicationTypeRequestTest {
     @Test
     public void testAddStateEntry() {
         System.out.println("addStateEntry");
-        Date effDate = new Date("June", 2016, 3);
+        Date effDate = new Date();
         Real accPoints = new Real(10);
         String reason = "testReason";
         //Active testActive = new Active(effDate, accPoints);
@@ -218,38 +220,40 @@ public class AddPublicationTypeRequestTest {
                 return false;
         }
 
-        /**
-         * Creates a new state entry for the new publication type
-         * @param effDate
-         *            The effective date to be used to create the state
-         * @param accPoints
-         *            The accreditation points to be used to create the state
-         * @param reason
-         *            The deactivation reason to be used to create the state
-         */
-        public void addStateEntry(Date effDate, Real accPoints, String reason)
-        {
-            try
-            {
-                if (verifyValidInput(effDate, accPoints, reason))
-                {
-                    if (accPoints != null)
-                    {
-                        pubType.state = new Active(effDate, accPoints);
-                    }
-                    else
-                    {
-                        pubType.state = new NotActive(effDate, reason);
-                    }
-                }
-                else
-                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
-            }
-            catch (InvalidInputException err)
-            {
-                System.out.println(err.getReason());
-            }
-        }
+//        todo this method appears in two other classes as well. Maybe you just need to change the name,
+//        todo otherwise use one of the already-defined methods :)
+//        /**
+//         * Creates a new state entry for the new publication type
+//         * @param effDate
+//         *            The effective date to be used to create the state
+//         * @param accPoints
+//         *            The accreditation points to be used to create the state
+//         * @param reason
+//         *            The deactivation reason to be used to create the state
+//         */
+//        public void addStateEntry(Date effDate, Real accPoints, String reason)
+//        {
+//            try
+//            {
+//                if (verifyValidInput(effDate, accPoints, reason))
+//                {
+//                    if (accPoints != null)
+//                    {
+//                        pubType.state = new Active(effDate, accPoints);
+//                    }
+//                    else
+//                    {
+//                        pubType.state = new NotActive(effDate, reason);
+//                    }
+//                }
+//                else
+//                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
+//            }
+//            catch (InvalidInputException err)
+//            {
+//                System.out.println(err.getReason());
+//            }
+//        }
 
         /**
          * Creates a new publication type
@@ -291,8 +295,6 @@ public class AddPublicationTypeRequestTest {
 
         /**
          * Getter for the new pubType variable
-         * @param PublicationType
-         *                     The function will return the instance of the PublicationType
          * @return The instance of PublicationType
          */
         public PublicationType getNewPublicationType()
