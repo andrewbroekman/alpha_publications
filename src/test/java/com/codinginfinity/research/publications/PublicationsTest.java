@@ -43,7 +43,7 @@ public class PublicationsTest {
             {
                 Assert.assertNotNull(publicationState.getDate());
 
-               List<Person> authors = publicationState.getPublicationDetails().getAuthors();
+                List<Person> authors = publicationState.getPublicationDetails().getAuthors();
 
                 assertTrue(!authors.isEmpty());
 
@@ -53,8 +53,19 @@ public class PublicationsTest {
 
                 Assert.assertNotNull(publicationState.getReason());
 
-                Assert.assertEquals(publicationState.getReason(), "The publication has been accepted");
-
+                Assert.assertEquals(publicationState.getReason(), "The publication has been submitted");
+                
+                Assert.assertEquals(authors.get(0).getFirstName(), "Dr Fritz");
+                
+                Assert.assertEquals(authors.get(0).getSurname(), "Solms");
+                
+                Assert.assertEquals(publicationState.getPublicationDetails().getTitle(), "Architectural patterns or styles");
+                
+                Assert.assertEquals(publicationState.getPublicationTarget().getName(), "Journal");
+                
+                Assert.assertEquals(publicationState.getPublicationType().getName(), "Accredited conferance paper");
+                
+                
             }
         }
     }

@@ -96,4 +96,18 @@ public class PublicationState {
     public void setPublicationType(PublicationType publicationType) {
         this.publicationType = publicationType;
     }
+
+    /**
+     * @return the publicationTarget
+     */
+    public PublicationTarget getPublicationTarget() {
+        return publicationTarget;
+    }
+
+    /**
+     * @param publicationTarget the publicationTarget to set
+     */
+    public void setPublicationTarget(PublicationTarget publicationTarget) {
+        this.publicationTarget = publicationTarget;
+    }
 }

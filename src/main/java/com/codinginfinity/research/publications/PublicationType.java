@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.Vector;
 
 public class PublicationType {
-    String name;
+    public String name;
     String description;
     PublicationTypeState state;     //I think this should be an ordered list,check domain model
     private Set<PublicationTypeState> publicationTypeState=new HashSet<>();
@@ -69,5 +69,12 @@ public class PublicationType {
      */
     public void setPublicationTypeState(Set<PublicationTypeState> publicationTypeState) {
         this.publicationTypeState = publicationTypeState;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
     }
 }
