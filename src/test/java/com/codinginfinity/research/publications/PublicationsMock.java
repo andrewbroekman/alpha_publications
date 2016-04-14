@@ -1,10 +1,13 @@
 package com.codinginfinity.research.publications;
 
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import javax.ejb.Stateless;
 import org.springframework.stereotype.Service;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -34,7 +37,13 @@ public class PublicationsMock  implements Publications {
         
         PublicationTarget publicationTarget=new PublicationTarget();
         publicationTarget.setName("Journal");
-//        publicationTarget.setWebSite(new URL(http://www.up.ac.za));
+        try {
+            URL url = new URL("http://www.up.ac.za");
+            publicationTarget.setWebSite(url);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PublicationsMock.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         PublicationState publicationState = new PublicationState(publicationType,publicationTarget);
         

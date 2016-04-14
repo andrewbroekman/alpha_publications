@@ -2,8 +2,12 @@
 package com.codinginfinity.research.publications;
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -34,6 +38,7 @@ public class PublicationsTest {
     @Test
     public void testPublicationsForPerson() 
     {
+        
         GetPublicationsForPersonResponse personResponse = publicationsMock.getPublicationsForPerson(new GetPublicationsForPersonRequest(new Person()));
         List<Publication> publications = personResponse.getPublications();
         for (Publication publication : publications) {
@@ -64,8 +69,17 @@ public class PublicationsTest {
                 Assert.assertEquals(publicationState.getPublicationTarget().getName(), "Journal");
                 
                 Assert.assertEquals(publicationState.getPublicationType().getName(), "Accredited conferance paper");
+                PublicationTarget publicationTarget=new PublicationTarget();
+                URL url=null;
+                try {
+                      url= new URL("http://www.up.ac.za");
+                    
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(PublicationsMock.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //Checking if the website equals the one i mocked
+                Assert.assertEquals(publicationState.getPublicationTarget().getWebSite(),url);
                 
-                Assert.assertEquals(publicationState.getPublicationType().getName(), "Accredited conferance paper");
                 
                 
             }
