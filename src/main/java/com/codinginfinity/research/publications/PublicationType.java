@@ -36,8 +36,6 @@ public class PublicationType {
     
     /**
      * Getter for the list of publication types stored in the database
-     * @param Vector
-     *                The function will return the list as a vector
      * @return The list of publication types stored in the database
      */
     public Vector getPublicationTypesList()

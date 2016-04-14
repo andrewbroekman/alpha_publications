@@ -149,8 +149,6 @@ public class AddPublicationTypeRequest {
 
     /**
      * Getter for the new pubType variable
-     * @param PublicationType
-     *                     The function will return the instance of the PublicationType
      * @return The instance of PublicationType
      */
     public PublicationType getNewPublicationType()
