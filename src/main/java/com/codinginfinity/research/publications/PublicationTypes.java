@@ -27,8 +27,6 @@ public class PublicationTypes {
     
     /**
      * Tests if the user of the request has administrator rights
-     * @param boolean
-     *                The function will return whether this function succeeded or not
      * @return
      *         true if the user is an administrator
      *         false if the user is not an administrator
@@ -87,7 +85,8 @@ public class PublicationTypes {
             if (isAdmin())
             {
                 addPublicationTypeRequest.createPublicationType(nameInput, descrInput);
-                addPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
+                //todo undefined
+                //addPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
                 persistObject(addPublicationTypeRequest.getNewPublicationType());
                 return new AddPublicationTypeResponse(addPublicationTypeRequest.getNewPublicationType());
             }
