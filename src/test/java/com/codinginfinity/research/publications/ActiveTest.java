@@ -7,6 +7,8 @@
 
 package com.codinginfinity.research.publications;
 
+
+
 import java.util.Date;
 import org.junit.After;
 import org.junit.Before;

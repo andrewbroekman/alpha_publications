@@ -9,7 +9,7 @@ package com.codinginfinity.research.publications;
 
 import java.util.Date;
 
-public class PublicationTypeState {
+public abstract class PublicationTypeState {
     Date effectiveDate;
     
     /**

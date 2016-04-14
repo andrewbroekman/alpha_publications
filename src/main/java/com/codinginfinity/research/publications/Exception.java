@@ -6,7 +6,9 @@
  *@since	2016-03-18
  */
 
+
 package com.codinginfinity.research.publications;
+
  
  public class Exception extends Throwable{
 	String reason;

@@ -1,3 +1,8 @@
+
+package com.codinginfinity.research.publications;
+
+
+
 //package com.codinginfinity.research.publications;
 //
 // todo GetPublicationsForGroup is not a class, it's a method defined in the Publications interface that
@@ -38,3 +43,4 @@
 //    }
 //
 //}
+

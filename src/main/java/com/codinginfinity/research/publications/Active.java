@@ -47,4 +47,8 @@ public class Active extends PublicationTypeState{
     {
         return accreditationPoints.getPoints();
     }
+
+    void setEffectiveDate(Date date) {
+        this.effectiveDate=date; 
+    }
 }

@@ -4,7 +4,10 @@
 * @since 2016-03-17
 */
 
+
+
 package com.codinginfinity.research.publications;;
+
 import java.util.*;
 
 public class ModifyPublicationTypeRequest {

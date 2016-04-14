@@ -1,5 +1,8 @@
 package com.codinginfinity.research.publications;
 
+import java.util.Vector;
+
+
 /**
  * The interface of the Publications module for the UP CS Research Management System
  *
@@ -7,6 +10,7 @@ package com.codinginfinity.research.publications;
  * @author Gian Paolo Buffo
  * @author Sibusiso Masemola
  * @author Elizabeth Bode
+ * @author Gershom Maluleke
  * @version 1.2
  * @since 2016-03-22
  */
