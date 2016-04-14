@@ -23,4 +23,20 @@ public class AddPublicationRequest {
     public AddPublicationRequest(PublicationState initialState){
         this.initialState = initialState;
     }
+
+    /**
+     * Setter for the initialState variable
+     * @param initialState The state that it is going to be set to.
+     */
+    protected void setInitialState(PublicationState initialState){
+        this.initialState = initialState;
+    }
+
+    /**
+     * Getter for variable initialState
+     * @return Returns the initialState variable
+     */
+    public PublicationState getInitialState(){
+        return initialState;
+    }
 }

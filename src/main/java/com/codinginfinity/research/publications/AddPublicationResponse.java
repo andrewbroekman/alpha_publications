@@ -23,4 +23,20 @@ public class AddPublicationResponse {
     public AddPublicationResponse(Publication addedPublication){
         this.addedPublication = addedPublication;
     }
+
+    /**
+     * Setter for the addedPublication variable
+     * @param addedPublication The publication that it is going to be set to.
+     */
+    protected void setAddedPublication(Publication addedPublication){
+        this.addedPublication = addedPublication;
+    }
+
+    /**
+     * Getter for variable addedPublication
+     * @return Returns the addedPublication variable
+     */
+    public Publication getAddedPublication(){
+        return addedPublication;
+    }
 }

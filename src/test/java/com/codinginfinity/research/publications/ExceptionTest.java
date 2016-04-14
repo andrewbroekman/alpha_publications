@@ -23,7 +23,7 @@ public class ExceptionTest {
         }
         catch (Throwable ex)
         {
-            fail("Contsructor claimed exception when no error occurred.");
+            fail("Constructor claimed exception when no error occurred.");
         }
     }
     
