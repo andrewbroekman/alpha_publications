@@ -1,5 +1,4 @@
-package com.codinginfinity.research.publication;
-import java.util.Vector;
+package com.codinginfinity.research.publications;
 
 /**
  * The interface of the Publications module for the UP CS Research Management System

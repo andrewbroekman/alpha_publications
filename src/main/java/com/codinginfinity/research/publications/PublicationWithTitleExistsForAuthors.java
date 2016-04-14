@@ -1,4 +1,4 @@
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;
 
 /**
  * An exception thrown when a user tries to create a publication with a title that already exists for its authors

@@ -4,7 +4,7 @@
 * @since 2016-03-17
 */
 
-package com.codinginfinity.publications;
+package com.codinginfinity.research.publications;
 
 public class Active extends PublicationTypeState{
     Real accreditationPoints;
