@@ -1,14 +1,16 @@
 /** NotActive Class
 * @author Elizabeth Bode
-* @version 1.0
+ * @author Gian Paolo Buffo
+* @version 1.1
 * @since 2016-03-17
 */
 
 package com.codinginfinity.research.publications;
+
 import java.util.Date;
 
 public class NotActive extends PublicationTypeState{
-    String deactivationReason;
+    private String deactivationReason;
     
     /**
     * Class constructor
@@ -24,7 +26,7 @@ public class NotActive extends PublicationTypeState{
     */
     public NotActive(Date effDate, String reason)
     {
-        super(effDate);
+        //super(effDate);
         deactivationReason = reason;
     }
     
@@ -40,8 +42,6 @@ public class NotActive extends PublicationTypeState{
     
     /**
     * Getter for deactivationReason
-    * @param String
-    *           Returns the deactivation reason
     * @return The deactivationReason as a string
     */
     public String getDeactivationReason()

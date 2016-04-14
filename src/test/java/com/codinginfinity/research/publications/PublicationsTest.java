@@ -65,7 +65,7 @@ public class PublicationsTest {
                 
                 Assert.assertEquals(publicationState.getPublicationType().getName(), "Accredited conferance paper");
                 
-                    Assert.assertEquals(publicationState.getPublicationType().getName(), "Accredited conferance paper");
+                Assert.assertEquals(publicationState.getPublicationType().getName(), "Accredited conferance paper");
                 
                 
             }

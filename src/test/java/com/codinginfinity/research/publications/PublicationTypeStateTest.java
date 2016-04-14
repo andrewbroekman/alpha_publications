@@ -1,5 +1,6 @@
 /** PublicationTypeStateTest Class
 * @author Elizabeth Bode
+ * @author Gian Paolo Buffo
 * @version 1.0
 * @since 2016-03-23
 */
@@ -9,6 +10,9 @@ package com.codinginfinity.research.publications;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Date;
+
 import static org.junit.Assert.*;
 import java.util.Date;
 
@@ -87,8 +91,6 @@ public class PublicationTypeStateTest {
 
         /**
         * Getter for effectiveDate
-        * @param int
-        *           Returns the effective date
         * @return The effective date
         */
         public Date getEffectiveDate()

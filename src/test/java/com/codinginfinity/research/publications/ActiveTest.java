@@ -1,13 +1,15 @@
 /** ActiveTest Class
-* @author Elizabeth Bode
-* @version 1.0
-* @since 2016-03-23
+ * @author Elizabeth Bode
+ * @author Gian Paolo Buffo
+ * @version 1.1
+ * @since 2016-03-23
 */
 
 package com.codinginfinity.research.publications;
-import java.util.Date;
 
-import java.util.List;
+
+
+import java.util.Date;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +29,7 @@ public class ActiveTest {
         }
         catch (NullPointerException ex)
         {
-            fail("Contsructor claimed null pointer encounter when it didn't.");
+            fail("Constructor claimed null pointer encounter when it didn't.");
         }
     }
     
@@ -86,7 +88,7 @@ public class ActiveTest {
 
         /**
         * Setter for the accreditationPoints variable
-        * @param point
+        * @param points
         *         The variable that will be used to change the value of the accreditationPoints variable
         */
         public void setAccreditationPoints(int points)
@@ -96,8 +98,6 @@ public class ActiveTest {
 
         /**
         * Getter for accreditationPoints
-        * @param int
-        *           Returns the total accreditation points
         * @return The total accreditation points
         */
         public int getAccreditationPoints()

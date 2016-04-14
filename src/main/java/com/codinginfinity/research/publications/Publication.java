@@ -1,7 +1,9 @@
 package com.codinginfinity.research.publications;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * A class representing a publication

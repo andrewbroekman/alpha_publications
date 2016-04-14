@@ -1,5 +1,7 @@
 package com.codinginfinity.research.publications;
+
 import java.util.Vector;
+
 
 /**
  * The interface of the Publications module for the UP CS Research Management System

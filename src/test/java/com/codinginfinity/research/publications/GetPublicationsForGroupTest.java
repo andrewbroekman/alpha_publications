@@ -23,7 +23,8 @@ public class GetPublicationsForGroupTest {
     @Before
     public void setUp() throws Exception {
 
-        _Pubs = new GetPublicationsForGroup();
+        // todo remember to add this method
+        //_Pubs = new GetPublicationsForGroup();
         _PGR = new GetPublicationsForGroupRequest();
 
     }
