@@ -5,4 +5,4 @@
  * @version 1.0
  */
 
-package com.codinginfinity.research.publication;
+package com.codinginfinity.research.publications;

@@ -19,8 +19,6 @@ public class EffectiveDateNotAfterEffectiveDateOfLastStateEntry extends Exceptio
     
     /**
      * Getter for the effective date not after effective date of last state entry reason
-     * @param String
-     *                The function will return a string as the message
      * @return The reason as a string
      */
     public String getReason()

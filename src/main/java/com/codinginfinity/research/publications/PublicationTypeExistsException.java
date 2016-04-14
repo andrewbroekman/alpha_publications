@@ -17,8 +17,6 @@ public class PublicationTypeExistsException extends Exception{
     
     /**
      * Getter for the publication type exists reason
-     * @param String
-     *                The function will return a string as the message
      * @return The reason as a string
      */
     public String getReason()
