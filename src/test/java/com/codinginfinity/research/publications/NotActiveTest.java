@@ -1,6 +1,7 @@
 /** NotActiveTest Class
 * @author Elizabeth Bode
-* @version 1.0
+ * @author Gian Paolo Buffo
+* @version 1.1
 * @since 2016-03-23
 */
 
@@ -9,6 +10,9 @@ package com.codinginfinity.research.publications;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class NotActiveTest {
@@ -18,7 +22,7 @@ public class NotActiveTest {
     public void preTestInitialization() {
         try
         {
-            Date testDate = new Date("October", 2016, 15);
+            Date testDate = new Date();
             testNotActive = new TestNotActive(testDate, "testDeactReason");
         }
         catch (NullPointerException ex)
@@ -75,8 +79,6 @@ public class NotActiveTest {
 
         /**
         * Getter for deactivationReason
-        * @param String
-        *           Returns the deactivation reason
         * @return The deactivationReason as a string
         */
         public String getDeactivationReason()
