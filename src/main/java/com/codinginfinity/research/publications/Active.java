@@ -1,10 +1,13 @@
 /** Active Class
 * @author Elizabeth Bode
-* @version 1.0
+ * @author Gian Paolo Buffo
+* @version 1.1
 * @since 2016-03-17
 */
 
 package com.codinginfinity.research.publications;
+
+import java.util.Date;
 
 public class Active extends PublicationTypeState{
     Real accreditationPoints;
@@ -23,13 +26,12 @@ public class Active extends PublicationTypeState{
     */
     public Active(Date inDate, Real inPoints)
     {
-        super(inDate);
         accreditationPoints = inPoints;
     }
     
     /**
     * Setter for the accreditationPoints variable
-    * @param point
+    * @param points
     *         The variable that will be used to change the value of the accreditationPoints variable
     */
     public void setAccreditationPoints(int points)
@@ -39,8 +41,6 @@ public class Active extends PublicationTypeState{
     
     /**
     * Getter for accreditationPoints
-    * @param int
-    *           Returns the total accreditation points
     * @return The total accreditation points
     */
     public int getAccreditationPoints()
