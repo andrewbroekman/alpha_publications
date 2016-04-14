@@ -8,11 +8,12 @@
 
 package com.codinginfinity.research.publications;;
 
-import java.util.*;
+import java.util.Vector;
+import java.util.Date;
 
 public class ModifyPublicationTypeRequest {
-    PublicationType pubType;
-    Vector pubTypeList;
+    private PublicationType pubType;
+    private Vector pubTypeList;
     
     /**
     * Class constructor
@@ -31,7 +32,7 @@ public class ModifyPublicationTypeRequest {
      *         true if a publication type with that name doesn't exist
      *         false if a publication type with that name already exists
      */
-    public boolean verifyDuplicate(String name)
+    public boolean verifyModifyDuplicate(String name)
     {
         for (int i = 0; i < pubTypeList.size(); i++)
         {
@@ -53,7 +54,7 @@ public class ModifyPublicationTypeRequest {
      *         true if all the parameters are valid
      *         false if one or more of the parameters are invalid
      */
-    public boolean verifyValidInput(Date inDate, Real inPoints, String inReason)
+    public boolean verifyModifyValidInput(Date inDate, Real inPoints, String inReason)
     {
         if (inReason != "")//NumberUtils.isNumber(inPoints.accreditPoints) && inDate.month > new Date() && inDate > pubType.state.effDate && 
             return true;
@@ -71,7 +72,7 @@ public class ModifyPublicationTypeRequest {
      *         true if all the parameters are valid
      *         false if one or more of the parameters are invalid
      */
-    public boolean verifyValidInput(String name, String description)
+    public boolean verifyModifyValidInput(String name, String description)
     {
         if (name != "" && description != null)
             return true;
@@ -88,11 +89,11 @@ public class ModifyPublicationTypeRequest {
      * @param reason
      *            The deactivation reason to be used to create the state
      */
-    public void addStateEntry(Date effDate, Real accPoints, String reason)
+    public void addStateEntryForExistingType(Date effDate, Real accPoints, String reason)
     {
         try
         {
-            if (verifyValidInput(effDate, accPoints, reason))
+            if (verifyModifyValidInput(effDate, accPoints, reason))
             {
                 if (accPoints != null)
                 {
@@ -120,7 +121,7 @@ public class ModifyPublicationTypeRequest {
     {
         try
         {
-            if (verifyDuplicate(name))
+            if (verifyModifyDuplicate(name))
             {
                 try
                 {

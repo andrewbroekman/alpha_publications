@@ -5,14 +5,14 @@
 */
 
 package com.codinginfinity.research.publications;
-import java.util.*;
+import java.util.Date;
 
 public class PublicationTypes {
-    String nameInput;
-    String descrInput;
-    Date effDateInput;
-    Real accPointsInput;
-    String reason;
+    private String nameInput;
+    private String descrInput;
+    private Date effDateInput;
+    private Real accPointsInput;
+    private String reason;
     
     /**
     * Class constructor
@@ -58,7 +58,7 @@ public class PublicationTypes {
             if (isAdmin())
             {
                 modifyPublicationTypeRequest.setModifiedPublicationType(nameInput, descrInput);
-                modifyPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
+                modifyPublicationTypeRequest.addStateEntryForExistingType(effDateInput, accPointsInput, reason);
                 persistObject(modifyPublicationTypeRequest.getModifiedPublicationType());
                 return new ModifyPublicationTypeResponse(modifyPublicationTypeRequest.getModifiedPublicationType());
             }
@@ -85,8 +85,7 @@ public class PublicationTypes {
             if (isAdmin())
             {
                 addPublicationTypeRequest.createPublicationType(nameInput, descrInput);
-                //todo undefined
-                //addPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
+                addPublicationTypeRequest.addStateEntryForNewType(effDateInput, accPointsInput, reason);
                 persistObject(addPublicationTypeRequest.getNewPublicationType());
                 return new AddPublicationTypeResponse(addPublicationTypeRequest.getNewPublicationType());
             }

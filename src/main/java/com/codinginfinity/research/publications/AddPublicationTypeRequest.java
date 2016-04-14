@@ -30,7 +30,7 @@ public class AddPublicationTypeRequest {
      *         true if a publication type with that name doesn't exist
      *         false if a publication type with that name already exists
      */
-    public boolean verifyDuplicate(String name)
+    public boolean verifyAddDuplicate(String name)
     {
         for (int i = 0; i < pubTypeList.size(); i++)
         {
@@ -52,7 +52,7 @@ public class AddPublicationTypeRequest {
      *         true if all the parameters are valid
      *         false if one or more of the parameters are invalid
      */
-    public boolean verifyValidInput(Date inDate, Real inPoints, String inReason)
+    public boolean verifyAddValidInput(Date inDate, Real inPoints, String inReason)
     {
         String date = new Date().toString();
         //NumberUtils.isNumber(inPoints.accreditPoints) needs to test accreditPoints are a number and (inDate.getDate() == date) the date isn't in the past
@@ -69,44 +69,43 @@ public class AddPublicationTypeRequest {
      *         true if all the parameters are valid
      *         false if one or more of the parameters are invalid
      */
-    public boolean verifyValidInput(String name, String description)
+    public boolean verifyAddValidInput(String name, String description)
     {
         return name != "" && description != null;
     }
 
-//    todo duplicate found in AddPublicationTypeRequest - where should it go?
-//    /**
-//     * Creates a new state entry for the new publication type
-//     * @param effDate
-//     *            The effective date to be used to create the state
-//     * @param accPoints
-//     *            The accreditation points to be used to create the state
-//     * @param reason
-//     *            The deactivation reason to be used to create the state
-//     */
-//    public void addStateEntry(Date effDate, Real accPoints, String reason)
-//    {
-//        try
-//        {
-//            if (verifyValidInput(effDate, accPoints, reason))
-//            {
-//                if (accPoints != null)
-//                {
-//                    pubType.state = new Active(effDate, accPoints);
-//                }
-//                else
-//                {
-//                    pubType.state = new NotActive(effDate, reason);
-//                }
-//            }
-//            else
-//                throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
-//        }
-//        catch (InvalidInputException err)
-//        {
-//            System.out.println(err.getReason());
-//        }
-//    }
+   /**
+    * Creates a new state entry for the new publication type
+    * @param effDate
+    *            The effective date to be used to create the state
+    * @param accPoints
+    *            The accreditation points to be used to create the state
+    * @param reason
+    *            The deactivation reason to be used to create the state
+    */
+   public void addStateEntryForNewType(Date effDate, Real accPoints, String reason)
+   {
+       try
+       {
+           if (verifyAddValidInput(effDate, accPoints, reason))
+           {
+               if (accPoints != null)
+               {
+                   pubType.state = new Active(effDate, accPoints);
+               }
+               else
+               {
+                   pubType.state = new NotActive(effDate, reason);
+               }
+           }
+           else
+               throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
+       }
+       catch (InvalidInputException err)
+       {
+           System.out.println(err.getReason());
+       }
+   }
 
     /**
      * Creates a new publication type
@@ -119,11 +118,11 @@ public class AddPublicationTypeRequest {
     {
         try
         {
-            if (verifyDuplicate(name))
+            if (verifyAddDuplicate(name))
             {
                 try
                 {
-                    if (verifyValidInput(name, description))
+                    if (verifyAddValidInput(name, description))
                     {
                         pubType.name = name;
                         pubType.description = description;

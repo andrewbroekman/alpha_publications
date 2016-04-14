@@ -7,7 +7,7 @@
 package com.codinginfinity.research.publications;
 
 public class EffectiveDateNotAfterEffectiveDateOfLastStateEntry extends Exception{
-    String reason;
+    private String reason;
 
     /**
     * Class constructor

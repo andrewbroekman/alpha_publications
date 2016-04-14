@@ -15,7 +15,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.Date;
 
 public class AddPublicationTypeRequestTest {
     
@@ -70,7 +69,7 @@ public class AddPublicationTypeRequestTest {
      * Test of verifyValidInput method
      */
     @Test
-    public void testVerifyValidInput_3args() {
+    public void testAddVerifyValidInput_3args() {
         System.out.println("verifyValidInput");
         Date inDate = new Date();
         Real inPoints = new Real(10);
@@ -88,8 +87,8 @@ public class AddPublicationTypeRequestTest {
      * Test of verifyValidInput method
      */
     @Test
-    public void testVerifyValidInput_String_String() {
-        System.out.println("verifyValidInput");
+    public void testAddVerifyValidInput_String_String() {
+        System.out.println("verifyAddValidInput");
         String name = "testName";
         String description = "testDescription";
         PublicationType testPubType = new PublicationType("testName", "testDescription");
@@ -103,7 +102,7 @@ public class AddPublicationTypeRequestTest {
      * Test of addStateEntry method
      */
     @Test
-    public void testAddStateEntry() {
+    public void testAddStateEntryForNewType() {
         System.out.println("addStateEntry");
         Date effDate = new Date();
         Real accPoints = new Real(10);
@@ -154,17 +153,17 @@ public class AddPublicationTypeRequestTest {
     
     public class TestAddPublicationTypeRequest {
         PublicationType pubType;
-        Vector pubTypeList;
+        private Vector pubTypeList;
 
         /**
          * Class constructor
          */
-        public TestAddPublicationTypeRequest(PublicationType pt)
+        public AddPublicationTypeRequest(PublicationType pt)
         {
             pubType = pt;
-            pubTypeList = pubType.getPublicationTypesList();
+            pubTypeList = pubType.getPublicationTypesList();            
         }
-
+        
         /**
          * Verifies that the publication type doesn't already exist according to publication type name
          * @param name
@@ -182,7 +181,7 @@ public class AddPublicationTypeRequestTest {
             }
             return true;
         }
-
+        
         /**
          * Verifies that none of the parameters are empty, that they are the right format and that the date isn't in the past
          * @param inDate
@@ -195,15 +194,13 @@ public class AddPublicationTypeRequestTest {
          *         true if all the parameters are valid
          *         false if one or more of the parameters are invalid
          */
-        public boolean verifyValidInput(Date inDate, Real inPoints, String inReason)
+        public boolean verifyAddValidInput(Date inDate, Real inPoints, String inReason)
         {
             String date = new Date().toString();
-            if ((inReason != ""))//NumberUtils.isNumber(inPoints.accreditPoints) needs to test accreditPoints are a number and (inDate.getDate() == date) the date isn't in the past
-                return true;
-            else
-                return false;
+            //NumberUtils.isNumber(inPoints.accreditPoints) needs to test accreditPoints are a number and (inDate.getDate() == date) the date isn't in the past
+            return (inReason != "");
         }
-
+        
         /**
          * Verifies that none of the parameters are empty
          * @param name
@@ -214,48 +211,43 @@ public class AddPublicationTypeRequestTest {
          *         true if all the parameters are valid
          *         false if one or more of the parameters are invalid
          */
-        public boolean verifyValidInput(String name, String description)
+        public boolean verifyAddValidInput(String name, String description)
         {
-            if (name != "" && description != null)
-                return true;
-            else
-                return false;
+            return name != "" && description != null;
         }
 
-//        todo this method appears in three other classes as well. Maybe you just need to change the name,
-//        todo otherwise use one of the already-defined methods :)
-//        /**
-//         * Creates a new state entry for the new publication type
-//         * @param effDate
-//         *            The effective date to be used to create the state
-//         * @param accPoints
-//         *            The accreditation points to be used to create the state
-//         * @param reason
-//         *            The deactivation reason to be used to create the state
-//         */
-//        public void addStateEntry(Date effDate, Real accPoints, String reason)
-//        {
-//            try
-//            {
-//                if (verifyValidInput(effDate, accPoints, reason))
-//                {
-//                    if (accPoints != null)
-//                    {
-//                        pubType.state = new Active(effDate, accPoints);
-//                    }
-//                    else
-//                    {
-//                        pubType.state = new NotActive(effDate, reason);
-//                    }
-//                }
-//                else
-//                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
-//            }
-//            catch (InvalidInputException err)
-//            {
-//                System.out.println(err.getReason());
-//            }
-//        }
+       /**
+        * Creates a new state entry for the new publication type
+        * @param effDate
+        *            The effective date to be used to create the state
+        * @param accPoints
+        *            The accreditation points to be used to create the state
+        * @param reason
+        *            The deactivation reason to be used to create the state
+        */
+       public void addStateEntryForNewType(Date effDate, Real accPoints, String reason)
+       {
+           try
+           {
+               if (verifyValidInput(effDate, accPoints, reason))
+               {
+                   if (accPoints != null)
+                   {
+                       pubType.state = new Active(effDate, accPoints);
+                   }
+                   else
+                   {
+                       pubType.state = new NotActive(effDate, reason);
+                   }
+               }
+               else
+                   throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
+           }
+           catch (InvalidInputException err)
+           {
+               System.out.println(err.getReason());
+           }
+       }
 
         /**
          * Creates a new publication type
@@ -274,7 +266,8 @@ public class AddPublicationTypeRequestTest {
                     {
                         if (verifyValidInput(name, description))
                         {
-                            pubType = new PublicationType(name, description);
+                            pubType.name = name;
+                            pubType.description = description;
                         }
                         else
                             throw new InvalidInputException("Error with creating! Publication type's name or description have incorrect input. Please try again.");
@@ -283,7 +276,7 @@ public class AddPublicationTypeRequestTest {
                     {
                         System.out.println(err.getReason());
                     }
-
+                    
                 }
                 else
                     throw new PublicationTypeExistsException("Error with creating! A publication with the name " + name + " already exists. Please try again.");
@@ -292,11 +285,13 @@ public class AddPublicationTypeRequestTest {
             {
                 System.out.println(err.getReason());
             }
-
+            
         }
 
         /**
          * Getter for the new pubType variable
+         * @param PublicationType
+         *                     The function will return the instance of the PublicationType
          * @return The instance of PublicationType
          */
         public PublicationType getNewPublicationType()

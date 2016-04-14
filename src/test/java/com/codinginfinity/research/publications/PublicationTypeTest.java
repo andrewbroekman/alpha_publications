@@ -6,9 +6,7 @@
 
 package com.codinginfinity.research.publications;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

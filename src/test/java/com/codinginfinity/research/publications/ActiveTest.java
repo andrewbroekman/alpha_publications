@@ -7,8 +7,7 @@
 
 package com.codinginfinity.research.publications;
 
-
-
+import java.util.List;
 import java.util.Date;
 import org.junit.After;
 import org.junit.Before;
@@ -29,7 +28,7 @@ public class ActiveTest {
         }
         catch (NullPointerException ex)
         {
-            fail("Constructor claimed null pointer encounter when it didn't.");
+            fail("Contsructor claimed null pointer encounter when it didn't.");
         }
     }
     
@@ -66,7 +65,7 @@ public class ActiveTest {
     }
     
     public class TestActive extends PublicationTypeState{
-        Real accreditationPoints;
+        private Real accreditationPoints;
 
         /**
         * Class constructor
@@ -80,7 +79,7 @@ public class ActiveTest {
         /**
         * Class constructor
         */
-        public TestActive(Date inDate, Real inPoints)
+        public TestActive(java.util.Date inDate, Real inPoints)
         {
             super(inDate);
             accreditationPoints = inPoints;
@@ -98,11 +97,17 @@ public class ActiveTest {
 
         /**
         * Getter for accreditationPoints
+        * @param int
+        *           Returns the total accreditation points
         * @return The total accreditation points
         */
         public int getAccreditationPoints()
         {
             return accreditationPoints.getPoints();
+        }
+
+        public void setEffectiveDate(java.util.Date date) {
+            super.setEffectiveDate(date); 
         }
     }
 }

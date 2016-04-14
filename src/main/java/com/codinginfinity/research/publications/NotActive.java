@@ -26,7 +26,7 @@ public class NotActive extends PublicationTypeState{
     */
     public NotActive(Date effDate, String reason)
     {
-        //super(effDate);
+        super(effDate);
         deactivationReason = reason;
     }
     
@@ -47,5 +47,9 @@ public class NotActive extends PublicationTypeState{
     public String getDeactivationReason()
     {
         return deactivationReason;
+    }
+
+    public void setEffectiveDate(Date date) {
+        super.setEffectiveDate(date); 
     }
 }

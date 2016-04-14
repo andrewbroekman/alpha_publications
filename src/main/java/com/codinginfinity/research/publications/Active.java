@@ -17,7 +17,7 @@ public class Active extends PublicationTypeState{
     */
     public Active()
     {
-        // super();
+        super();
         accreditationPoints = null;
     }
     
@@ -26,6 +26,7 @@ public class Active extends PublicationTypeState{
     */
     public Active(Date inDate, Real inPoints)
     {
+    	super(inDate);
         accreditationPoints = inPoints;
     }
     
@@ -48,7 +49,7 @@ public class Active extends PublicationTypeState{
         return accreditationPoints.getPoints();
     }
 
-    void setEffectiveDate(Date date) {
-        this.effectiveDate=date; 
+    public void setEffectiveDate(Date date) {
+        super.setEffectiveDate(date); 
     }
 }

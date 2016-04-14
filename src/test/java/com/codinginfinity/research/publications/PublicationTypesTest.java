@@ -130,61 +130,59 @@ public class PublicationTypesTest {
         {
 
         }
-//        todo duplicate method definition
-//        /**
-//        * Handles the modify publication request and response in order for a new publication type to be successfully updated
-//        * @param modifyPublicationTypeRequest
-//        *         Contains the necessary data and functions that need to be carried out in order to modify the publication type
-//        * @return An instance of ModifyPublicationTypeResponse is returned which contains the result of the associated request
-//        */
-//        public ModifyPublicationTypeResponse modifyPublicationType(ModifyPublicationTypeRequest modifyPublicationTypeRequest) {
-//            try
-//            {
-//                if (isAdmin())
-//                {
-//                    modifyPublicationTypeRequest.setModifiedPublicationType(nameInput, descrInput);
-//                    modifyPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
-//                    persistObject(modifyPublicationTypeRequest.getModifiedPublicationType());
-//                    return new ModifyPublicationTypeResponse(modifyPublicationTypeRequest.getModifiedPublicationType());
-//                }
-//                else
-//                    throw new AuthorizationException("Error with modification authorization! User does not have administrator rights in order to modify a publication type.");
-//            }
-//            catch (AuthorizationException err)
-//            {
-//                System.out.println(err.getReason());
-//            }
-//            return null;
-//        }
 
+       /**
+       * Handles the modify publication request and response in order for a new publication type to be successfully updated
+       * @param modifyPublicationTypeRequest
+       *         Contains the necessary data and functions that need to be carried out in order to modify the publication type
+       * @return An instance of ModifyPublicationTypeResponse is returned which contains the result of the associated request
+       */
+       public ModifyPublicationTypeResponse modifyPublicationType(ModifyPublicationTypeRequest modifyPublicationTypeRequest) {
+           try
+           {
+               if (isAdmin())
+               {
+                   modifyPublicationTypeRequest.setModifiedPublicationType(nameInput, descrInput);
+                   modifyPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
+                   persistObject(modifyPublicationTypeRequest.getModifiedPublicationType());
+                   return new ModifyPublicationTypeResponse(modifyPublicationTypeRequest.getModifiedPublicationType());
+               }
+               else
+                   throw new AuthorizationException("Error with modification authorization! User does not have administrator rights in order to modify a publication type.");
+           }
+           catch (AuthorizationException err)
+           {
+               System.out.println(err.getReason());
+           }
+           return null;
+       }
 
-//       todo duplicate method definition
-//        /**
-//        * Handles the add publication request and response in order for a new publication type to be successfully added
-//        * @param addPublicationTypeRequest
-//        *         Contains the necessary data and functions that need to be carried out in order to add the publication type
-//        * @return An instance of AddPublicationTypeResponse is returned which contains the result of the associated request
-//        */
-//        public AddPublicationTypeResponse addPublicationType(AddPublicationTypeRequest addPublicationTypeRequest)
-//        {
-//            try
-//            {
-//                if (isAdmin())
-//                {
-//                    addPublicationTypeRequest.createPublicationType(nameInput, descrInput);
-//                    addPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
-//                    persistObject(addPublicationTypeRequest.getNewPublicationType());
-//                    return new AddPublicationTypeResponse(addPublicationTypeRequest.getNewPublicationType());
-//                }
-//                else
-//                    throw new AuthorizationException("Error with creation authorization! User does not have administrator rights in order to create a new publication type.");
-//            }
-//            catch (AuthorizationException err)
-//            {
-//                System.out.println(err.getReason());
-//            }
-//            return null;
-//        }
+       /**
+       * Handles the add publication request and response in order for a new publication type to be successfully added
+       * @param addPublicationTypeRequest
+       *         Contains the necessary data and functions that need to be carried out in order to add the publication type
+       * @return An instance of AddPublicationTypeResponse is returned which contains the result of the associated request
+       */
+       public AddPublicationTypeResponse addPublicationType(AddPublicationTypeRequest addPublicationTypeRequest)
+       {
+           try
+           {
+               if (isAdmin())
+               {
+                   addPublicationTypeRequest.createPublicationType(nameInput, descrInput);
+                   addPublicationTypeRequest.addStateEntry(effDateInput, accPointsInput, reason);
+                   persistObject(addPublicationTypeRequest.getNewPublicationType());
+                   return new AddPublicationTypeResponse(addPublicationTypeRequest.getNewPublicationType());
+               }
+               else
+                   throw new AuthorizationException("Error with creation authorization! User does not have administrator rights in order to create a new publication type.");
+           }
+           catch (AuthorizationException err)
+           {
+               System.out.println(err.getReason());
+           }
+           return null;
+       }
 
     }
 }

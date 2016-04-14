@@ -48,26 +48,26 @@ public class NotActiveTest {
     }
     
     public class TestNotActive extends PublicationTypeState{
-        String deactivationReason;
-
+        private String deactivationReason;
+    
         /**
         * Class constructor
         */
-        public TestNotActive()
+        public NotActive()
         {
             super();
             deactivationReason = "";
         }
-
+        
         /**
         * Class constructor
         */
-        public TestNotActive(Date effDate, String reason)
+        public NotActive(Date effDate, String reason)
         {
-            super(effDate);
+            //super(effDate);
             deactivationReason = reason;
         }
-
+        
         /**
         * Setter for the deactivationReason variable
         * @param reason
@@ -77,7 +77,7 @@ public class NotActiveTest {
         {
             deactivationReason = reason;
         }*/
-
+        
         /**
         * Getter for deactivationReason
         * @return The deactivationReason as a string
