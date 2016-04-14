@@ -1,5 +1,6 @@
 /** PublicationTypeStateTest Class
 * @author Elizabeth Bode
+ * @author Gian Paolo Buffo
 * @version 1.0
 * @since 2016-03-23
 */
@@ -9,6 +10,9 @@ package com.codinginfinity.research.publications;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class PublicationTypeStateTest {
@@ -19,7 +23,7 @@ public class PublicationTypeStateTest {
     public void preTestInitialization() {
         try
         {
-            Date testDate = new Date("October", 2016, 15);
+            Date testDate = new Date();
             testState = new TestPublicationTypeState(testDate);
         }
         catch (Throwable ex)
@@ -38,7 +42,7 @@ public class PublicationTypeStateTest {
     @Test
     public void testSetEffectiveDate() {
         System.out.println("setEffectiveDate");
-        Date testDate = new Date("October", 2016, 15);
+        Date testDate = new Date();
         TestPublicationTypeState instance = new TestPublicationTypeState();
         instance.setEffectiveDate(testDate);
         assertEquals(testDate, instance.effectiveDate);
@@ -50,7 +54,7 @@ public class PublicationTypeStateTest {
     @Test
     public void testGetEffectiveDate() {
         System.out.println("getEffectiveDate");
-        Date expResult = new Date("October", 2016, 15);
+        Date expResult = new Date();
         TestPublicationTypeState instance = new TestPublicationTypeState(expResult);
         Date result = instance.getEffectiveDate();
         assertEquals(expResult, result);
@@ -86,8 +90,6 @@ public class PublicationTypeStateTest {
 
         /**
         * Getter for effectiveDate
-        * @param int
-        *           Returns the effective date
         * @return The effective date
         */
         public Date getEffectiveDate()
