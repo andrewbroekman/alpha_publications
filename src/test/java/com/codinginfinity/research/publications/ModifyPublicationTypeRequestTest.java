@@ -1,11 +1,13 @@
 /** ModifyPublicationTypeRequestTest Class
 * @author Elizabeth Bode
-* @version 1.0
+ * @author Gian Paolo Buffo
+* @version 1.1
 * @since 2016-03-23
 */
 
 package com.codinginfinity.research.publications;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
@@ -67,7 +69,7 @@ public class ModifyPublicationTypeRequestTest {
     @Test
     public void testVerifyValidInput_3args() {
         System.out.println("verifyValidInput");
-        Date inDate = new Date("July", 2016, 20);
+        Date inDate = new Date();
         Real inPoints = new Real(20);
         String inReason = "testReason";
         boolean expResult = false;
@@ -100,12 +102,13 @@ public class ModifyPublicationTypeRequestTest {
     @Test
     public void testAddStateEntry() {
         System.out.println("addStateEntry");
-        Date effDate = new Date("July", 2016, 20);
+        Date effDate = new Date();
         Real accPoints = new Real(20);
         String reason = "testReason";
         PublicationType testPubType = new PublicationType("testName", "testDescr");
         TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(testPubType);
-        instance.addStateEntry(effDate, accPoints, reason);
+//      todo this method is not defined
+        //instance.addStateEntry(effDate, accPoints, reason);
         assertEquals(effDate, instance.pubType.state.effectiveDate);
         //assertEquals(accPoints, instance.pubType.state.accreditationPoints.getAccreditationPoints());
         //assertEquals(reason, instance.pubType.state.deactivationReason.getDeactivationReason());
@@ -123,7 +126,8 @@ public class ModifyPublicationTypeRequestTest {
             String description = "testDescr2";
             PublicationType testPubType = new PublicationType("testName", "testDescr");
             TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(testPubType);
-            instance.setModifiedPublicationType(name, description);
+//          todo this method is not defined
+            //instance.setModifiedPublicationType(name, description);
             assertEquals(name, instance.pubType.name);
             assertEquals(description, instance.pubType.description);
         }
@@ -212,79 +216,79 @@ public class ModifyPublicationTypeRequestTest {
             else
                 return false;
         }
+//        todo this method appears in three other classes as well. Maybe you just need to change the name,
+//        todo otherwise use one of the already-defined methods :)
+//        /**
+//         * Creates a new state entry for the new publication type
+//         * @param effDate
+//         *            The effective date to be used to create the state
+//         * @param accPoints
+//         *            The accreditation points to be used to create the state
+//         * @param reason
+//         *            The deactivation reason to be used to create the state
+//         */
+//        public void addStateEntry(Date effDate, Real accPoints, String reason)
+//        {
+//            try
+//            {
+//                if (verifyValidInput(effDate, accPoints, reason))
+//                {
+//                    if (accPoints != null)
+//                    {
+//                        pubType.state = new Active(effDate, accPoints);
+//                    }
+//                    else
+//                    {
+//                        pubType.state = new NotActive(effDate, reason);
+//                    }
+//                }
+//                else
+//                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
+//            }
+//            catch (InvalidInputException err)
+//            {
+//                System.out.println(err.getReason());
+//            }
+//        }
 
-        /**
-         * Creates a new state entry for the new publication type
-         * @param effDate
-         *            The effective date to be used to create the state
-         * @param accPoints
-         *            The accreditation points to be used to create the state
-         * @param reason
-         *            The deactivation reason to be used to create the state
-         */
-        public void addStateEntry(Date effDate, Real accPoints, String reason)
-        {
-            try
-            {
-                if (verifyValidInput(effDate, accPoints, reason))
-                {
-                    if (accPoints != null)
-                    {
-                        pubType.state = new Active(effDate, accPoints);
-                    }
-                    else
-                    {
-                        pubType.state = new NotActive(effDate, reason);
-                    }
-                }
-                else
-                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
-            }
-            catch (InvalidInputException err)
-            {
-                System.out.println(err.getReason());
-            }
-        }
-
-        /**
-        * Setter for the pubType variable
-        * @param pt
-        *         The variable that will be used to change the value of the pubType           
-        */
-        public void setModifiedPublicationType(String name, String description)
-        {
-            try
-            {
-                if (verifyDuplicate(name))
-                {
-                    try
-                    {
-                        if (verifyValidInput(name, description))
-                        {
-                            pubType.name = name;
-                            pubType.description = description;
-                        }
-                        else
-                            throw new InvalidInputException("Error with editing! Publication type's name or description have incorrect input. Please try again.");
-                    }
-                    catch(InvalidInputException err)
-                    {
-                        System.out.println(err.getReason());
-                    }                
-                }
-                else
-                    throw new PublicationTypeExistsException("Error with editing! A publication with the name " + name + " already exists. Please try again.");
-            }
-            catch (PublicationTypeExistsException err)
-            {
-                System.out.println(err.getReason());
-            }
-        }
+//        todo this method is also already defined in another class
+//        /**
+//        * Setter for the pubType variable
+//        * @param pt
+//        *         The variable that will be used to change the value of the pubType
+//        */
+//        public void setModifiedPublicationType(String name, String description)
+//        {
+//            try
+//            {
+//                if (verifyDuplicate(name))
+//                {
+//                    try
+//                    {
+//                        if (verifyValidInput(name, description))
+//                        {
+//                            pubType.name = name;
+//                            pubType.description = description;
+//                        }
+//                        else
+//                            throw new InvalidInputException("Error with editing! Publication type's name or description have incorrect input. Please try again.");
+//                    }
+//                    catch(InvalidInputException err)
+//                    {
+//                        System.out.println(err.getReason());
+//                    }
+//                }
+//                else
+//                    throw new PublicationTypeExistsException("Error with editing! A publication with the name " + name + " already exists. Please try again.");
+//            }
+//            catch (PublicationTypeExistsException err)
+//            {
+//                System.out.println(err.getReason());
+//            }
+//        }
 
         /**
         * Getter for the pubType variable
-        * @param PublicationType
-        *                     The function will return the instance of the PublicationType
         * @return The instance of PublicationType
         */
         public PublicationType getModifiedPublicationType()

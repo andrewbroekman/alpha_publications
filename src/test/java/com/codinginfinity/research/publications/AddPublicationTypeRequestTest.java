@@ -221,7 +221,7 @@ public class AddPublicationTypeRequestTest {
                 return false;
         }
 
-//        todo this method appears in two other classes as well. Maybe you just need to change the name,
+//        todo this method appears in three other classes as well. Maybe you just need to change the name,
 //        todo otherwise use one of the already-defined methods :)
 //        /**
 //         * Creates a new state entry for the new publication type
