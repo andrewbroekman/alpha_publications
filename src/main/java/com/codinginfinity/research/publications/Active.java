@@ -17,7 +17,7 @@ public class Active extends PublicationTypeState{
     */
     public Active()
     {
-        super();
+        // super();
         accreditationPoints = null;
     }
     
