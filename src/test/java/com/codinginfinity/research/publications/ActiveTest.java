@@ -1,11 +1,13 @@
 /** ActiveTest Class
-* @author Elizabeth Bode
-* @version 1.0
-* @since 2016-03-23
+ * @author Elizabeth Bode
+ * @author Gian Paolo Buffo
+ * @version 1.1
+ * @since 2016-03-23
 */
 
 package com.codinginfinity.research.publications;
 
+import java.util.Date;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
@@ -20,13 +22,13 @@ public class ActiveTest {
     public void preTestInitialization() {
         try
         {
-            Date testDate = new Date("October", 2016, 15);
+            Date testDate = new Date();
             Real testReal = new Real(15);
             testActive = new TestActive(testDate, testReal);
         }
         catch (NullPointerException ex)
         {
-            fail("Contsructor claimed null pointer encounter when it didn't.");
+            fail("Constructor claimed null pointer encounter when it didn't.");
         }
     }
     
@@ -40,7 +42,7 @@ public class ActiveTest {
     @Test
     public void testSetAccreditationPoints() {
         System.out.println("setAccreditationPoints");
-        Date testDate = new Date("October", 2016, 15);
+        Date testDate = new Date();
         Real testReal = new Real(0);
         int points = 15;
         TestActive instance = new TestActive(testDate, testReal);
@@ -54,7 +56,7 @@ public class ActiveTest {
     @Test
     public void testGetAccreditationPoints() {
         System.out.println("getAccreditationPoints");
-        Date testDate = new Date("October", 2016, 15);
+        Date testDate = new Date();
         Real testReal = new Real(15);
         TestActive instance = new TestActive(testDate, testReal);
         int expPoints = 15;
@@ -85,7 +87,7 @@ public class ActiveTest {
 
         /**
         * Setter for the accreditationPoints variable
-        * @param point
+        * @param points
         *         The variable that will be used to change the value of the accreditationPoints variable
         */
         public void setAccreditationPoints(int points)
@@ -95,8 +97,6 @@ public class ActiveTest {
 
         /**
         * Getter for accreditationPoints
-        * @param int
-        *           Returns the total accreditation points
         * @return The total accreditation points
         */
         public int getAccreditationPoints()
