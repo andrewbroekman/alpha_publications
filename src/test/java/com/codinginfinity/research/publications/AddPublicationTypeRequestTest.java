@@ -111,7 +111,8 @@ public class AddPublicationTypeRequestTest {
         //NotActive testNotActive = new NotActive(effDate, reason);
         PublicationType testPubType = new PublicationType("testName", "testDescr");
         TestAddPublicationTypeRequest instance = new TestAddPublicationTypeRequest(testPubType);
-        instance.addStateEntry(effDate, accPoints, reason);
+//        todo instance.addStateEntry is not defined
+        //instance.addStateEntry(effDate, accPoints, reason);
         assertEquals(effDate, instance.pubType.state.effectiveDate);
         //assertEquals(testActive, instance.pubType.state);
         //assertEquals(reason, instance.pubType.state.deactivationReason.getDeactivationReason());
