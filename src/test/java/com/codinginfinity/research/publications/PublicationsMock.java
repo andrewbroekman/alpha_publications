@@ -4,6 +4,7 @@ package com.codinginfinity.research.publications;
 import java.net.URL;
 import javax.ejb.Stateless;
 import org.springframework.stereotype.Service;
+import java.util.Date;
 
 
 /**
@@ -25,7 +26,7 @@ public class PublicationsMock  implements Publications {
         PublicationType publicationType = new PublicationType();
         publicationType.setName("Accredited conferance paper");
         
-        Date effDate = new Date("June", 2010, 4);
+        Date effDate = new Date();
         Real accPoints = new Real(13);
         
         PublicationTypeState publicationTypeState= new Active(effDate,accPoints);
@@ -37,14 +38,14 @@ public class PublicationsMock  implements Publications {
         
         PublicationState publicationState = new PublicationState(publicationType,publicationTarget);
         
-        Date date = new Date("January", 2011, 4);
+        Date date = new Date();
         publicationState.setDate(date);
         publicationState.setLifeCycleState(new Submitted());
         publicationState.setReason("The publication has been submitted");
         
         PublicationDetails publicationDetails = new PublicationDetails();
         publicationDetails.setTitle("Architectural patterns or styles");
-        Date envisagedPublicationDate = new Date("June", 2010, 4);
+        Date envisagedPublicationDate = new Date();
         publicationDetails.setEnvisagedPublicationDate(envisagedPublicationDate);
         
         Person person = new Person();
@@ -58,6 +59,7 @@ public class PublicationsMock  implements Publications {
         publicationForPersonResponse.addPublication(publication);
 
         return publicationForPersonResponse;
+        
     }
 
     

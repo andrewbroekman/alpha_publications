@@ -5,6 +5,7 @@
 */
 
 package com.codinginfinity.research.publications;
+import java.util.Date;
 
 import java.util.List;
 import org.junit.After;
@@ -20,7 +21,7 @@ public class ActiveTest {
     public void preTestInitialization() {
         try
         {
-            Date testDate = new Date("October", 2016, 15);
+            Date testDate = new Date();
             Real testReal = new Real(15);
             testActive = new TestActive(testDate, testReal);
         }
@@ -40,7 +41,7 @@ public class ActiveTest {
     @Test
     public void testSetAccreditationPoints() {
         System.out.println("setAccreditationPoints");
-        Date testDate = new Date("October", 2016, 15);
+        Date testDate = new Date();
         Real testReal = new Real(0);
         int points = 15;
         TestActive instance = new TestActive(testDate, testReal);
@@ -54,7 +55,7 @@ public class ActiveTest {
     @Test
     public void testGetAccreditationPoints() {
         System.out.println("getAccreditationPoints");
-        Date testDate = new Date("October", 2016, 15);
+        Date testDate = new Date();
         Real testReal = new Real(15);
         TestActive instance = new TestActive(testDate, testReal);
         int expPoints = 15;

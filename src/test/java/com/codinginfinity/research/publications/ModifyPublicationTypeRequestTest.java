@@ -13,7 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import java.util.Date;
 public class ModifyPublicationTypeRequestTest {
     private List<PublicationType> testPubType;
     private List<TestModifyPublicationTypeRequest> testRequest;
@@ -67,7 +67,7 @@ public class ModifyPublicationTypeRequestTest {
     @Test
     public void testVerifyValidInput_3args() {
         System.out.println("verifyValidInput");
-        Date inDate = new Date("July", 2016, 20);
+        Date inDate = new Date();
         Real inPoints = new Real(20);
         String inReason = "testReason";
         boolean expResult = false;
@@ -100,7 +100,7 @@ public class ModifyPublicationTypeRequestTest {
     @Test
     public void testAddStateEntry() {
         System.out.println("addStateEntry");
-        Date effDate = new Date("July", 2016, 20);
+        Date effDate = new Date();
         Real accPoints = new Real(20);
         String reason = "testReason";
         PublicationType testPubType = new PublicationType("testName", "testDescr");

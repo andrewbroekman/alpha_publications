@@ -7,5 +7,5 @@ package com.codinginfinity.research.publications;
  */
 
 public abstract class LifeCycleState {
-
+  
 }

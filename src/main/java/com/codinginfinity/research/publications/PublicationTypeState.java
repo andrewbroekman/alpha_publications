@@ -5,6 +5,7 @@
 */
 
 package com.codinginfinity.research.publications;
+import java.util.Date;
 
 public abstract class PublicationTypeState {
     Date effectiveDate;

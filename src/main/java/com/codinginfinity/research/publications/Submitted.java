@@ -7,5 +7,10 @@ package com.codinginfinity.research.publications;
  */
 
 public class Submitted extends LifeCycleState {
+    
+    public String getState()
+    {
+        return "Submitted";
+    }
 
 }

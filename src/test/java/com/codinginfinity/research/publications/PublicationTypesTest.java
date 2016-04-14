@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Date;
 
 public class PublicationTypesTest {
     @Before
@@ -26,7 +27,7 @@ public class PublicationTypesTest {
     @Test
     public void testIsAdmin() {
         System.out.println("isAdmin");
-        Date effDate = new Date("", 0, 0);
+        Date effDate = new Date();
         Real accPoints = new Real(0);
         TestPublicationTypes instance = new TestPublicationTypes("", "", effDate,accPoints, "");
         boolean expResult = true;
@@ -40,7 +41,7 @@ public class PublicationTypesTest {
     @Test
     public void testPersistObject() {
         System.out.println("persistObject");
-        Date effDate = new Date("", 0, 0);
+        Date effDate = new Date();
         Real accPoints = new Real(0);
         PublicationType pt = new PublicationType("testName", "testDescr");
         TestPublicationTypes instance = new TestPublicationTypes(pt.name, pt.description, effDate, accPoints, "testReason");
@@ -53,7 +54,7 @@ public class PublicationTypesTest {
     @Test
     public void testModifyPublicationType() {
         System.out.println("modifyPublicationType");
-        Date effDate = new Date("June", 2010, 4);
+        Date effDate = new Date();
         Real accPoints = new Real(13);
         String testReason = "testReason";
         PublicationType pt = new PublicationType("testName", "testDescr");
@@ -72,7 +73,7 @@ public class PublicationTypesTest {
     @Test
     public void testAddPublicationType() {
         System.out.println("addPublicationType");
-        Date effDate = new Date("June", 2010, 4);
+        Date effDate = new Date();
         Real accPoints = new Real(13);
         String testReason = "testReason";
         PublicationType pt = new PublicationType("testName", "testDescr");

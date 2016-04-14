@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Date;
 
 public class NotActiveTest {
     private TestNotActive testNotActive;
@@ -18,7 +19,7 @@ public class NotActiveTest {
     public void preTestInitialization() {
         try
         {
-            Date testDate = new Date("October", 2016, 15);
+            Date testDate = new Date();
             testNotActive = new TestNotActive(testDate, "testDeactReason");
         }
         catch (NullPointerException ex)
