@@ -34,8 +34,6 @@ public class Real {
     
     /**
     * Getter for accreditPoints
-    * @param int
-    *           Returns the accrediatation points
     * @return The accreditation points
     */
     public int getPoints()
