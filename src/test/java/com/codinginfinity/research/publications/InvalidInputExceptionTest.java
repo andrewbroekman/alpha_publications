@@ -63,8 +63,6 @@ public class InvalidInputExceptionTest {
 
         /**
          * Getter for the invalid input reason
-         * @param String
-         *                The function will return a string as the message
          * @return The reason as a string
          */
         public String getReason()
