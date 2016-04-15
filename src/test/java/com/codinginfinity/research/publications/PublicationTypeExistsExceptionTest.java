@@ -12,7 +12,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PublicationTypeExistsExceptionTest {
-    TestPublicationTypeExistsException testPubExistsEx;
+    private TestPublicationTypeExistsException testPubExistsEx;
     
     @Before
     public void preTestInitialization() {

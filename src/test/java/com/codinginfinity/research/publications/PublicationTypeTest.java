@@ -49,9 +49,9 @@ public class PublicationTypeTest {
     }
     
     public class TestPublicationType {
-        String name;
-        String description;
-        PublicationTypeState state;
+        private String name;
+        private String description;
+        private PublicationTypeState state;
 
         /**
         * Class constructor

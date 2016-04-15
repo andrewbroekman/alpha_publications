@@ -52,7 +52,7 @@ public class EffectiveDateNotAfterEffectiveDateOfLastStateEntryTest {
         assertEquals(reason, testEDNAEDOLSE.getReason());
     }
     public class TestEffectiveDateNotAfterEffectiveDateOfLastStateEntry extends Exception{
-        String reason;
+        private String reason;
 
         /**
         * Class constructor

@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 public class ExceptionTest {
     
-    TestException testEx;
+    private TestException testEx;
     
     @Before
     public void preTestInitialization() {
@@ -53,19 +53,19 @@ public class ExceptionTest {
         assertEquals(expResult, result);
     }
     
-     public class TestException extends Throwable{
-	String reason;
-	 
-	public TestException(String reason){
-		this.setReason(reason);
-	}
-	
-	protected void setReason(String reason){
-		this.reason = reason;
-	}
-	
-	public String getReason(){
-		return reason;
-	}
+    public class TestException extends Throwable{
+    	private String reason;
+    	 
+    	public TestException(String reason){
+    		this.setReason(reason);
+    	}
+    	
+    	protected void setReason(String reason){
+    		this.reason = reason;
+    	}
+    	
+    	public String getReason(){
+    		return reason;
+    	}
     }
 }

@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 public class InvalidInputExceptionTest {
     
-    TestInvalidInputException testInputEx;
+    private TestInvalidInputException testInputEx;
     
     @Before
     public void preTestInitialization() {

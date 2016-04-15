@@ -68,7 +68,7 @@ public class AddPublicationTypeResponseTest {
     }
     
     public class TestAddPublicationTypeResponse {
-        PublicationType newPubType;
+        private PublicationType newPubType;
 
         /**
          * Class constructor

@@ -10,11 +10,8 @@ package com.codinginfinity.research.publications;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Date;
-
 import static org.junit.Assert.*;
-import java.util.Date;
 
 public class NotActiveTest {
     private TestNotActive testNotActive;
@@ -53,7 +50,7 @@ public class NotActiveTest {
         /**
         * Class constructor
         */
-        public NotActive()
+        public TestNotActive()
         {
             super();
             deactivationReason = "";
@@ -62,9 +59,9 @@ public class NotActiveTest {
         /**
         * Class constructor
         */
-        public NotActive(Date effDate, String reason)
+        public TestNotActive(Date effDate, String reason)
         {
-            //super(effDate);
+            super(effDate);
             deactivationReason = reason;
         }
         
@@ -85,6 +82,10 @@ public class NotActiveTest {
         public String getDeactivationReason()
         {
             return deactivationReason;
+        }
+
+        public void setEffectiveDate(Date date) {
+            super.setEffectiveDate(date); 
         }
     }
 }

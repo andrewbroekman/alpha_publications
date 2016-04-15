@@ -1,6 +1,6 @@
 /** ModifyPublicationTypeRequestTest Class
 * @author Elizabeth Bode
- * @author Gian Paolo Buffo
+* @author Gian Paolo Buffo
 * @version 1.1
 * @since 2016-03-23
 */
@@ -15,7 +15,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.Date;
+
 public class ModifyPublicationTypeRequestTest {
     private List<PublicationType> testPubType;
     private List<TestModifyPublicationTypeRequest> testRequest;
@@ -52,13 +52,13 @@ public class ModifyPublicationTypeRequestTest {
      * Test of verifyDuplicate method
      */
     @Test
-    public void testVerifyDuplicate() {
-        System.out.println("verifyDuplicate");
+    public void testVerifyModifyDuplicate() {
+        System.out.println("verifyModifyDuplicate");
         boolean expResult = false;
         boolean result;
         for (int i = 0; i < testRequest.size(); i++)
         {
-            result = testRequest.get(i).verifyDuplicate(testRequest.get(i).pubType.name);
+            result = testRequest.get(i).verifyModifyDuplicate(testRequest.get(i).pubType.name);
             assertEquals(expResult, result);
         }
     }
@@ -67,8 +67,8 @@ public class ModifyPublicationTypeRequestTest {
      * Test of verifyValidInput method
      */
     @Test
-    public void testVerifyValidInput_3args() {
-        System.out.println("verifyValidInput");
+    public void testVerifyModifyValidInput_3args() {
+        System.out.println("verifyModifyValidInput");
         Date inDate = new Date();
         Real inPoints = new Real(20);
         String inReason = "testReason";
@@ -76,7 +76,7 @@ public class ModifyPublicationTypeRequestTest {
         boolean result;
         for (int i = 0; i < testRequest.size(); i++)
         {
-            result = testRequest.get(i).verifyValidInput(inDate, inPoints, inReason);
+            result = testRequest.get(i).verifyModifyValidInput(inDate, inPoints, inReason);
             assertEquals(expResult, result);
         }
     }
@@ -85,14 +85,14 @@ public class ModifyPublicationTypeRequestTest {
      * Test of verifyValidInput method
      */
     @Test
-    public void testVerifyValidInput_String_String() {
-        System.out.println("verifyValidInput");
+    public void testVerifyModifyValidInput_String_String() {
+        System.out.println("verifyModifyValidInput");
         String name = "testName";
         String description = "testDescription";
         PublicationType testPubType = new PublicationType("testName", "testDescription");
         TestModifyPublicationTypeRequest testRequest = new TestModifyPublicationTypeRequest(testPubType);
         boolean expResult = true;
-        boolean result = testRequest.verifyValidInput(name, description);
+        boolean result = testRequest.verifyModifyValidInput(name, description);
         assertEquals(expResult, result);
     }
 
@@ -100,16 +100,15 @@ public class ModifyPublicationTypeRequestTest {
      * Test of addStateEntry method
      */
     @Test
-    public void testAddStateEntry() {
-        System.out.println("addStateEntry");
+    public void testAddStateEntryForExistingType() {
+        System.out.println("addStateEntryForExistingType");
         Date effDate = new Date();
         Real accPoints = new Real(20);
         String reason = "testReason";
         PublicationType testPubType = new PublicationType("testName", "testDescr");
         TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(testPubType);
-//      todo this method is not defined
-        //instance.addStateEntry(effDate, accPoints, reason);
-        assertEquals(effDate, instance.pubType.state.effectiveDate);
+        instance.addStateEntryForExistingType(effDate, accPoints, reason);
+        assertEquals(effDate, instance.pubType.state.getEffectiveDate());
         //assertEquals(accPoints, instance.pubType.state.accreditationPoints.getAccreditationPoints());
         //assertEquals(reason, instance.pubType.state.deactivationReason.getDeactivationReason());
     }
@@ -126,8 +125,7 @@ public class ModifyPublicationTypeRequestTest {
             String description = "testDescr2";
             PublicationType testPubType = new PublicationType("testName", "testDescr");
             TestModifyPublicationTypeRequest instance = new TestModifyPublicationTypeRequest(testPubType);
-//          todo this method is not defined
-            //instance.setModifiedPublicationType(name, description);
+            instance.setModifiedPublicationType(name, description);
             assertEquals(name, instance.pubType.name);
             assertEquals(description, instance.pubType.description);
         }
@@ -149,8 +147,8 @@ public class ModifyPublicationTypeRequestTest {
     }
     
     public class TestModifyPublicationTypeRequest {
-        PublicationType pubType;
-        Vector pubTypeList;
+        private PublicationType pubType;
+        private Vector pubTypeList;
 
         /**
         * Class constructor
@@ -169,7 +167,7 @@ public class ModifyPublicationTypeRequestTest {
          *         true if a publication type with that name doesn't exist
          *         false if a publication type with that name already exists
          */
-        public boolean verifyDuplicate(String name)
+        public boolean verifyModifyDuplicate(String name)
         {
             for (int i = 0; i < pubTypeList.size(); i++)
             {
@@ -191,7 +189,7 @@ public class ModifyPublicationTypeRequestTest {
          *         true if all the parameters are valid
          *         false if one or more of the parameters are invalid
          */
-        public boolean verifyValidInput(Date inDate, Real inPoints, String inReason)
+        public boolean verifyModifyValidInput(Date inDate, Real inPoints, String inReason)
         {
             if (inReason != "")//NumberUtils.isNumber(inPoints.accreditPoints) && inDate.month > new Date() && inDate > pubType.state.effDate && 
                 return true;
@@ -209,86 +207,86 @@ public class ModifyPublicationTypeRequestTest {
          *         true if all the parameters are valid
          *         false if one or more of the parameters are invalid
          */
-        public boolean verifyValidInput(String name, String description)
+        public boolean verifyModifyValidInput(String name, String description)
         {
             if (name != "" && description != null)
                 return true;
             else
                 return false;
         }
-//        todo this method appears in three other classes as well. Maybe you just need to change the name,
-//        todo otherwise use one of the already-defined methods :)
-//        /**
-//         * Creates a new state entry for the new publication type
-//         * @param effDate
-//         *            The effective date to be used to create the state
-//         * @param accPoints
-//         *            The accreditation points to be used to create the state
-//         * @param reason
-//         *            The deactivation reason to be used to create the state
-//         */
-//        public void addStateEntry(Date effDate, Real accPoints, String reason)
-//        {
-//            try
-//            {
-//                if (verifyValidInput(effDate, accPoints, reason))
-//                {
-//                    if (accPoints != null)
-//                    {
-//                        pubType.state = new Active(effDate, accPoints);
-//                    }
-//                    else
-//                    {
-//                        pubType.state = new NotActive(effDate, reason);
-//                    }
-//                }
-//                else
-//                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
-//            }
-//            catch (InvalidInputException err)
-//            {
-//                System.out.println(err.getReason());
-//            }
-//        }
 
-//        todo this method is also already defined in another class
-//        /**
-//        * Setter for the pubType variable
-//        * @param pt
-//        *         The variable that will be used to change the value of the pubType
-//        */
-//        public void setModifiedPublicationType(String name, String description)
-//        {
-//            try
-//            {
-//                if (verifyDuplicate(name))
-//                {
-//                    try
-//                    {
-//                        if (verifyValidInput(name, description))
-//                        {
-//                            pubType.name = name;
-//                            pubType.description = description;
-//                        }
-//                        else
-//                            throw new InvalidInputException("Error with editing! Publication type's name or description have incorrect input. Please try again.");
-//                    }
-//                    catch(InvalidInputException err)
-//                    {
-//                        System.out.println(err.getReason());
-//                    }
-//                }
-//                else
-//                    throw new PublicationTypeExistsException("Error with editing! A publication with the name " + name + " already exists. Please try again.");
-//            }
-//            catch (PublicationTypeExistsException err)
-//            {
-//                System.out.println(err.getReason());
-//            }
-//        }
+        /**
+         * Creates a new state entry for the new publication type
+         * @param effDate
+         *            The effective date to be used to create the state
+         * @param accPoints
+         *            The accreditation points to be used to create the state
+         * @param reason
+         *            The deactivation reason to be used to create the state
+         */
+        public void addStateEntryForExistingType(Date effDate, Real accPoints, String reason)
+        {
+            try
+            {
+                if (verifyModifyValidInput(effDate, accPoints, reason))
+                {
+                    if (accPoints != null)
+                    {
+                        pubType.state = new Active(effDate, accPoints);
+                    }
+                    else
+                    {
+                        pubType.state = new NotActive(effDate, reason);
+                    }
+                }
+                else
+                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
+            }
+            catch (InvalidInputException err)
+            {
+                System.out.println(err.getReason());
+            }
+        }
+
+        /**
+        * Setter for the pubType variable
+        * @param pt
+        *         The variable that will be used to change the value of the pubType           
+        */
+        public void setModifiedPublicationType(String name, String description)
+        {
+            try
+            {
+                if (verifyModifyDuplicate(name))
+                {
+                    try
+                    {
+                        if (verifyModifyValidInput(name, description))
+                        {
+                            pubType.name = name;
+                            pubType.description = description;
+                        }
+                        else
+                            throw new InvalidInputException("Error with editing! Publication type's name or description have incorrect input. Please try again.");
+                    }
+                    catch(InvalidInputException err)
+                    {
+                        System.out.println(err.getReason());
+                    }                
+                }
+                else
+                    throw new PublicationTypeExistsException("Error with editing! A publication with the name " + name + " already exists. Please try again.");
+            }
+            catch (PublicationTypeExistsException err)
+            {
+                System.out.println(err.getReason());
+            }
+        }
 
         /**
         * Getter for the pubType variable
+        * @param PublicationType
+        *                     The function will return the instance of the PublicationType
         * @return The instance of PublicationType
         */
         public PublicationType getModifiedPublicationType()

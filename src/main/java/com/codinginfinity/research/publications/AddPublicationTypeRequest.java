@@ -10,7 +10,7 @@ import java.util.*;
 
 
 public class AddPublicationTypeRequest {
-    PublicationType pubType;
+    private PublicationType pubType;
     private Vector pubTypeList;
 
     /**

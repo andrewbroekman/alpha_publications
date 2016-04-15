@@ -1,15 +1,15 @@
 /** AddPublicationTypeRequestTest Class
 * @author Elizabeth Bode
- * @authot Gian Paolo Buffo
+* @author Gian Paolo Buffo
 * @version 1.1
 * @since 2016-03-23
 */
 
 package com.codinginfinity.research.publications;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Date;
 import java.util.Vector;
 import org.junit.After;
 import org.junit.Before;
@@ -54,13 +54,13 @@ public class AddPublicationTypeRequestTest {
      * Test of verifyDuplicate method
      */
     @Test
-    public void testVerifyDuplicate() {
-        System.out.println("verifyDuplicate");
+    public void testVerifyAddDuplicate() {
+        System.out.println("verifyAddDuplicate");
         boolean expResult = false;
         boolean result;
         for (int i = 0; i < testRequest.size(); i++)
         {
-            result = testRequest.get(i).verifyDuplicate(testRequest.get(i).pubType.name);
+            result = testRequest.get(i).verifyAddDuplicate(testRequest.get(i).pubType.name);
             assertEquals(expResult, result);
         }
     }
@@ -69,8 +69,8 @@ public class AddPublicationTypeRequestTest {
      * Test of verifyValidInput method
      */
     @Test
-    public void testAddVerifyValidInput_3args() {
-        System.out.println("verifyValidInput");
+    public void testVerifyAddValidInput_3args() {
+        System.out.println("verifyAddValidInput");
         Date inDate = new Date();
         Real inPoints = new Real(10);
         String inReason = "testReason";
@@ -78,7 +78,7 @@ public class AddPublicationTypeRequestTest {
         boolean result;
         for (int i = 0; i < testRequest.size(); i++)
         {
-            result = testRequest.get(i).verifyValidInput(inDate, inPoints, inReason);
+            result = testRequest.get(i).verifyAddValidInput(inDate, inPoints, inReason);
             assertEquals(expResult, result);
         }
     }
@@ -87,14 +87,14 @@ public class AddPublicationTypeRequestTest {
      * Test of verifyValidInput method
      */
     @Test
-    public void testAddVerifyValidInput_String_String() {
-        System.out.println("verifyAddValidInput");
+    public void testVerifyAddValidInput_String_String() {
+        System.out.println("verifyValidInput");
         String name = "testName";
         String description = "testDescription";
         PublicationType testPubType = new PublicationType("testName", "testDescription");
         TestAddPublicationTypeRequest testRequest = new TestAddPublicationTypeRequest(testPubType);
         boolean expResult = true;
-        boolean result = testRequest.verifyValidInput(name, description);
+        boolean result = testRequest.verifyAddValidInput(name, description);
         assertEquals(expResult, result);
     }
 
@@ -111,9 +111,8 @@ public class AddPublicationTypeRequestTest {
         //NotActive testNotActive = new NotActive(effDate, reason);
         PublicationType testPubType = new PublicationType("testName", "testDescr");
         TestAddPublicationTypeRequest instance = new TestAddPublicationTypeRequest(testPubType);
-//        todo instance.addStateEntry is not defined
-        //instance.addStateEntry(effDate, accPoints, reason);
-        assertEquals(effDate, instance.pubType.state.effectiveDate);
+        instance.addStateEntryForNewType(effDate, accPoints, reason);
+        assertEquals(effDate, instance.pubType.state.getEffectiveDate());
         //assertEquals(testActive, instance.pubType.state);
         //assertEquals(reason, instance.pubType.state.deactivationReason.getDeactivationReason());
     }
@@ -152,18 +151,18 @@ public class AddPublicationTypeRequestTest {
     }
     
     public class TestAddPublicationTypeRequest {
-        PublicationType pubType;
+        private PublicationType pubType;
         private Vector pubTypeList;
 
         /**
          * Class constructor
          */
-        public AddPublicationTypeRequest(PublicationType pt)
+        public TestAddPublicationTypeRequest(PublicationType pt)
         {
             pubType = pt;
             pubTypeList = pubType.getPublicationTypesList();            
         }
-        
+
         /**
          * Verifies that the publication type doesn't already exist according to publication type name
          * @param name
@@ -172,7 +171,7 @@ public class AddPublicationTypeRequestTest {
          *         true if a publication type with that name doesn't exist
          *         false if a publication type with that name already exists
          */
-        public boolean verifyDuplicate(String name)
+        public boolean verifyAddDuplicate(String name)
         {
             for (int i = 0; i < pubTypeList.size(); i++)
             {
@@ -181,7 +180,7 @@ public class AddPublicationTypeRequestTest {
             }
             return true;
         }
-        
+
         /**
          * Verifies that none of the parameters are empty, that they are the right format and that the date isn't in the past
          * @param inDate
@@ -200,7 +199,7 @@ public class AddPublicationTypeRequestTest {
             //NumberUtils.isNumber(inPoints.accreditPoints) needs to test accreditPoints are a number and (inDate.getDate() == date) the date isn't in the past
             return (inReason != "");
         }
-        
+
         /**
          * Verifies that none of the parameters are empty
          * @param name
@@ -216,38 +215,38 @@ public class AddPublicationTypeRequestTest {
             return name != "" && description != null;
         }
 
-       /**
-        * Creates a new state entry for the new publication type
-        * @param effDate
-        *            The effective date to be used to create the state
-        * @param accPoints
-        *            The accreditation points to be used to create the state
-        * @param reason
-        *            The deactivation reason to be used to create the state
-        */
-       public void addStateEntryForNewType(Date effDate, Real accPoints, String reason)
-       {
-           try
-           {
-               if (verifyValidInput(effDate, accPoints, reason))
-               {
-                   if (accPoints != null)
-                   {
-                       pubType.state = new Active(effDate, accPoints);
-                   }
-                   else
-                   {
-                       pubType.state = new NotActive(effDate, reason);
-                   }
-               }
-               else
-                   throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
-           }
-           catch (InvalidInputException err)
-           {
-               System.out.println(err.getReason());
-           }
-       }
+        /**
+         * Creates a new state entry for the new publication type
+         * @param effDate
+         *            The effective date to be used to create the state
+         * @param accPoints
+         *            The accreditation points to be used to create the state
+         * @param reason
+         *            The deactivation reason to be used to create the state
+         */
+        public void addStateEntryForNewType(Date effDate, Real accPoints, String reason)
+        {
+            try
+            {
+                if (verifyAddValidInput(effDate, accPoints, reason))
+                {
+                    if (accPoints != null)
+                    {
+                        pubType.state = new Active(effDate, accPoints);                
+                    }
+                    else
+                    {
+                        pubType.state = new NotActive(effDate, reason);
+                    }
+                }
+                else
+                    throw new InvalidInputException("Error with creating state entry! Effective date, accreditation points or deactivation reason have incorrect input. Please try again.");
+            }
+            catch (InvalidInputException err)
+            {
+                System.out.println(err.getReason());
+            }
+        }
 
         /**
          * Creates a new publication type
@@ -260,11 +259,11 @@ public class AddPublicationTypeRequestTest {
         {
             try
             {
-                if (verifyDuplicate(name))
+                if (verifyAddDuplicate(name))
                 {
                     try
                     {
-                        if (verifyValidInput(name, description))
+                        if (verifyAddValidInput(name, description))
                         {
                             pubType.name = name;
                             pubType.description = description;
@@ -276,7 +275,7 @@ public class AddPublicationTypeRequestTest {
                     {
                         System.out.println(err.getReason());
                     }
-                    
+
                 }
                 else
                     throw new PublicationTypeExistsException("Error with creating! A publication with the name " + name + " already exists. Please try again.");
@@ -285,7 +284,7 @@ public class AddPublicationTypeRequestTest {
             {
                 System.out.println(err.getReason());
             }
-            
+
         }
 
         /**

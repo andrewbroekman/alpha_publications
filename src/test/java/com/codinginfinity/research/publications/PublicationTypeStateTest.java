@@ -10,15 +10,12 @@ package com.codinginfinity.research.publications;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Date;
-
 import static org.junit.Assert.*;
-import java.util.Date;
 
 public class PublicationTypeStateTest {
     
-    TestPublicationTypeState testState;
+    private TestPublicationTypeState testState;
     
     @Before
     public void preTestInitialization() {
@@ -62,7 +59,7 @@ public class PublicationTypeStateTest {
     }
 
     public class TestPublicationTypeState {
-        Date effectiveDate;
+        private Date effectiveDate;
 
         /**
         * Class constructor
