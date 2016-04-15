@@ -125,7 +125,7 @@ public class ModifyPublicationTypeRequest {
             {
                 try
                 {
-                    if (verifyValidInput(name, description))
+                    if (verifyModifyValidInput(name, description))
                     {
                         pubType.name = name;
                         pubType.description = description;
